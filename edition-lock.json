@@ -1,8 +1,9 @@
 {
-  "edition": 3,
+  "edition": 4,
   "lockedPhases": [
     "phase-0",
-    "phase-1"
+    "phase-1",
+    "phase-2"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -74,6 +75,31 @@
       "sha256": "ffe4575315107a142998d83c11f65fedf0f16a61c19c9f9843992dd7c0e10290",
       "phase": "phase-1",
       "lockedAt": "2026-10-18T15:26:09.759Z"
+    },
+    "src\\main\\services\\adaptiveTargetEngine.ts": {
+      "sha256": "11543989e1e8526e4f220fad3d904d3db5c84e7dadfb58b9803c41229f7ecaae",
+      "phase": "phase-2",
+      "lockedAt": "2026-10-18T15:32:19.036Z"
+    },
+    "src\\renderer\\features\\path\\QuestMapView.tsx": {
+      "sha256": "09ad7f6a2a40e0b4fdfe6df4011ab590a229c6c705026b1b20362beddd583220",
+      "phase": "phase-2",
+      "lockedAt": "2026-10-18T15:32:19.037Z"
+    },
+    "src\\renderer\\features\\gamification\\GemShopView.tsx": {
+      "sha256": "754f1e82da7a04131bc98be59bc15f29035ea4e63055de73c8bb12de308b71a6",
+      "phase": "phase-2",
+      "lockedAt": "2026-10-18T15:32:19.038Z"
+    },
+    "src\\renderer\\features\\gamification\\LeagueLeaderboardView.tsx": {
+      "sha256": "961ee9665c5d9eab96fe12833129ca255ea08332d13ae1903fec218a1d65cde6",
+      "phase": "phase-2",
+      "lockedAt": "2026-10-18T15:32:19.038Z"
+    },
+    "src\\renderer\\features\\gamification\\MistakeRepairModal.tsx": {
+      "sha256": "8eb189d1f054f90e0f7c25e25c9e72ea31ebb8707060f74e6cb3fa054d23014a",
+      "phase": "phase-2",
+      "lockedAt": "2026-10-18T15:32:19.039Z"
     }
   }
 }

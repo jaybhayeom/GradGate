@@ -1,76 +1,168 @@
 // ==============================================================================
 // APP MAIN COMPONENT
-// Features: FramelessTitleBar, TopStatHud, Module Navigator, Design System Studio
+// Features:
+//   1. FramelessTitleBar & TopStatHud
+//   2. Navigation: Learning Path (Winding Snake), Leaderboard, Gem Shop, Design Studio
+//   3. Dynamic Adaptive Daily Quests Banner
+//   4. MistakeRepairModal triggered on zero hearts or manual practice
 // ==============================================================================
 
 import React, { useEffect, useState } from 'react';
 import { FramelessTitleBar } from '../components/ui/FramelessTitleBar';
 import { TopStatHud } from '../components/ui/TopStatHud';
-import { DuoButton } from '../components/ui/DuoButton';
+import { QuestMapView } from '../features/path/QuestMapView';
+import { LeagueLeaderboardView } from '../features/gamification/LeagueLeaderboardView';
+import { GemShopView } from '../features/gamification/GemShopView';
+import { MistakeRepairModal } from '../features/gamification/MistakeRepairModal';
 import { DesignSystemPreview } from '../features/design-system/DesignSystemPreview';
-import type { SyllabusSection, UserStats, SyncProgress, UpdateCheckResult } from '../../shared/types';
-import { Books, Palette, Sparkle } from '@phosphor-icons/react';
+import type {
+  SyllabusSection,
+  Unit,
+  SteppingNode,
+  NodeProgress,
+  UserStats,
+  MistakesVaultItem,
+  AdaptiveDailyTarget
+} from '../../shared/types';
+import { Route, Trophy, Diamond, Palette, CheckCircle2, Target } from 'lucide-react';
 
 export default function App(): React.JSX.Element {
   const [sections, setSections] = useState<SyllabusSection[]>([]);
   const [selectedSectionId, setSelectedSectionId] = useState<string>('DA_01_PROB_STATS');
+  const [units, setUnits] = useState<Unit[]>([]);
+  const [nodesByUnit, setNodesByUnit] = useState<Record<string, SteppingNode[]>>({});
+  const [nodeProgress, setNodeProgress] = useState<Record<string, NodeProgress>>({});
   const [userStats, setUserStats] = useState<UserStats | null>(null);
-  const [syncStatus, setSyncStatus] = useState<string>('Connected to Dual-SQLite Engine');
-  const [syncProgress, setSyncProgress] = useState<SyncProgress | null>(null);
-  const [, setUpdateResult] = useState<UpdateCheckResult | null>(null);
-  const [isCheckingUpdate, setIsCheckingUpdate] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<'curriculum' | 'design_system'>('curriculum');
+  const [mistakes, setMistakes] = useState<MistakesVaultItem[]>([]);
+  const [dailyTargets, setDailyTargets] = useState<AdaptiveDailyTarget[]>([]);
+  const [isRepairModalOpen, setIsRepairModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'path' | 'leaderboard' | 'shop' | 'design_system'>('path');
 
   useEffect(() => {
-    // 1. Fetch official syllabus sections from curriculum.db via IPC bridge
+    // 1. Fetch official syllabus sections
     if (window.api?.getSyllabusSections) {
       window.api.getSyllabusSections().then((data) => {
         setSections(data);
         if (data.length > 0) {
           setSelectedSectionId(data[0].id);
         }
-      }).catch((err) => {
-        console.error('Failed to load syllabus sections:', err);
-      });
+      }).catch((err) => console.error(err));
     }
 
-    // 2. Fetch user profile stats from user_profile.db via IPC bridge
+    // 2. Fetch user stats
     if (window.api?.getUserStats) {
       window.api.getUserStats().then((stats) => {
         setUserStats(stats);
-      }).catch((err) => {
-        console.error('Failed to load user stats:', err);
-      });
+      }).catch((err) => console.error(err));
     }
 
-    // 3. Listen to OTA sync progress events
-    if (window.api?.onSyncProgress) {
-      const cleanup = window.api.onSyncProgress((progress) => {
-        setSyncProgress(progress);
-        setSyncStatus(`Sync: ${progress.message} (${progress.percent}%)`);
-      });
-      return cleanup;
+    // 3. Fetch node progress
+    if (window.api?.getNodeProgress) {
+      window.api.getNodeProgress().then((progs) => {
+        const map: Record<string, NodeProgress> = {};
+        for (const p of progs) map[p.node_id] = p;
+        setNodeProgress(map);
+      }).catch((err) => console.error(err));
     }
-    return undefined;
+
+    // 4. Fetch mistakes vault items
+    if (window.api?.getMistakes) {
+      window.api.getMistakes().then((items) => {
+        setMistakes(items);
+      }).catch((err) => console.error(err));
+    }
+
+    // 5. Fetch daily targets
+    if (window.api?.getDailyTargets) {
+      window.api.getDailyTargets().then((targets) => {
+        setDailyTargets(targets);
+      }).catch((err) => console.error(err));
+    }
   }, []);
 
-  const handleCheckUpdate = async (): Promise<void> => {
-    if (!window.api?.checkCurriculumUpdate) return;
-    setIsCheckingUpdate(true);
-    try {
-      const res = await window.api.checkCurriculumUpdate();
-      setUpdateResult(res);
-      setSyncStatus(
-        res.updateAvailable
-          ? `Update Available: v${res.latestVersion}`
-          : `Up to date (Version: ${res.currentVersion})`
-      );
-    } catch (err) {
-      setSyncStatus(`Update check failed: ${(err as Error).message}`);
-    } finally {
-      setIsCheckingUpdate(false);
-    }
-  };
+  // When selected section changes, load its units and nodes
+  useEffect(() => {
+    if (!window.api?.getUnits || !selectedSectionId) return;
+
+    window.api.getUnits(selectedSectionId).then(async (fetchedUnits) => {
+      // If no units in DB yet for this section, provide initial demo structure
+      const validUnits = fetchedUnits.length > 0 ? fetchedUnits : [
+        {
+          id: `unit_${selectedSectionId}_1`,
+          section_id: selectedSectionId as SyllabusSection['id'],
+          title: 'Foundational Concepts & Principles',
+          description: 'Core definitions, theorems, and fundamental properties tested in GATE DA.',
+          order_index: 1,
+          created_at: new Date().toISOString()
+        },
+        {
+          id: `unit_${selectedSectionId}_2`,
+          section_id: selectedSectionId as SyllabusSection['id'],
+          title: 'Advanced Applications & Trap Analysis',
+          description: 'High-frequency exam pitfalls, multi-step derivations, and standard PYQs.',
+          order_index: 2,
+          created_at: new Date().toISOString()
+        }
+      ];
+
+      setUnits(validUnits);
+
+      // Load nodes for each unit
+      const nodeMap: Record<string, SteppingNode[]> = {};
+      for (const u of validUnits) {
+        let nodes: SteppingNode[] = [];
+        if (window.api?.getNodes) {
+          nodes = await window.api.getNodes(u.id);
+        }
+        if (nodes.length === 0) {
+          nodes = [
+            {
+              id: `${u.id}_node_1`,
+              unit_id: u.id,
+              title: 'Concept Drill 1',
+              node_type: 'CONCEPT_DRILL',
+              order_index: 1,
+              total_xp: 15,
+              required_hearts: 1,
+              created_at: new Date().toISOString()
+            },
+            {
+              id: `${u.id}_node_2`,
+              unit_id: u.id,
+              title: 'Visual Studio Exploration',
+              node_type: 'VISUAL_STUDIO',
+              order_index: 2,
+              total_xp: 20,
+              required_hearts: 1,
+              created_at: new Date().toISOString()
+            },
+            {
+              id: `${u.id}_node_3`,
+              unit_id: u.id,
+              title: 'PYQ Checkpoint 2024',
+              node_type: 'PYQ_CHECKPOINT',
+              order_index: 3,
+              total_xp: 25,
+              required_hearts: 1,
+              created_at: new Date().toISOString()
+            },
+            {
+              id: `${u.id}_node_4`,
+              unit_id: u.id,
+              title: 'Boss Checkpoint Challenge',
+              node_type: 'BOSS_MOCK',
+              order_index: 4,
+              total_xp: 40,
+              required_hearts: 1,
+              created_at: new Date().toISOString()
+            }
+          ];
+        }
+        nodeMap[u.id] = nodes;
+      }
+      setNodesByUnit(nodeMap);
+    }).catch((err) => console.error(err));
+  }, [selectedSectionId]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans select-none">
@@ -84,135 +176,166 @@ export default function App(): React.JSX.Element {
         onSelectSection={(id) => setSelectedSectionId(id)}
         userStats={userStats}
         isOnline={true}
-        onOpenGemShop={() => alert('Gem Shop unlocks in Phase 2!')}
-        onOpenHeartsRefill={() => alert('Hearts refill practice opens when hearts are low.')}
+        onOpenGemShop={() => setActiveTab('shop')}
+        onOpenHeartsRefill={() => setIsRepairModalOpen(true)}
       />
 
-      {/* 3. Navigation View Switcher (Curriculum Path vs Design System Studio) */}
-      <div className="max-w-7xl w-full mx-auto px-8 pt-6 flex items-center justify-between">
-        <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-900 border border-slate-800">
+      {/* 3. Navigation Bar */}
+      <div className="max-w-4xl w-full mx-auto px-6 pt-5 flex items-center justify-between">
+        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800">
           <button
             type="button"
-            onClick={() => setActiveTab('curriculum')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
-              activeTab === 'curriculum'
-                ? 'bg-[#58CC02] text-slate-950 shadow-md font-extrabold'
+            onClick={() => setActiveTab('path')}
+            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+              activeTab === 'path'
+                ? 'bg-[#58CC02] text-slate-950 shadow-md'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Books size={16} weight="bold" />
-            <span>Curriculum Modules</span>
+            <Route className="w-4 h-4" />
+            <span>Learning Path</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('leaderboard')}
+            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+              activeTab === 'leaderboard'
+                ? 'bg-[#FFC800] text-slate-950 shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Trophy className="w-4 h-4" />
+            <span>Leaderboard</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('shop')}
+            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+              activeTab === 'shop'
+                ? 'bg-[#1CB0F6] text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Diamond className="w-4 h-4" />
+            <span>Gem Shop</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('design_system')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
               activeTab === 'design_system'
-                ? 'bg-[#1CB0F6] text-white shadow-md font-extrabold'
+                ? 'bg-purple-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Palette size={16} weight="bold" />
-            <span>Design System Studio</span>
+            <Palette className="w-4 h-4" />
+            <span>UI Studio</span>
           </button>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400 font-mono">
-          <Sparkle size={14} className="text-amber-400" />
-          <span>Electron 33+ React 18 Tailwind</span>
-        </div>
+        <button
+          type="button"
+          onClick={() => setIsRepairModalOpen(true)}
+          className="px-3.5 py-2 rounded-xl bg-rose-950/40 hover:bg-rose-950/60 border border-rose-900/60 text-rose-300 text-xs font-bold transition flex items-center gap-2"
+        >
+          <span>Mistakes Vault</span>
+          <span className="px-1.5 py-0.5 rounded-full bg-rose-500 text-white text-[10px] font-black">
+            {mistakes.length}
+          </span>
+        </button>
       </div>
 
       {/* 4. Active View Content */}
-      <main className="flex-1 w-full mx-auto">
-        {activeTab === 'design_system' ? (
-          <DesignSystemPreview />
-        ) : (
-          <div className="max-w-7xl mx-auto p-8 flex flex-col gap-8">
-            {/* Architecture & Sync Status Banner */}
-            <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <h2 className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
-                    Dual-SQLite Architecture Active
-                  </h2>
-                </div>
-                <p className="text-xs text-slate-400">{syncStatus}</p>
-                {syncProgress && (
-                  <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
-                    <div
-                      className="bg-emerald-500 h-full transition-all duration-300"
-                      style={{ width: `${syncProgress.percent}%` }}
-                    />
+      <main className="flex-1 w-full mx-auto pb-16">
+        {activeTab === 'path' && (
+          <div className="flex flex-col items-center">
+            {/* Daily Quests Mini Banner */}
+            {dailyTargets.length > 0 && (
+              <div className="w-full max-w-2xl px-6 mt-6">
+                <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-5 flex flex-col gap-3 shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+                      <Target className="w-4 h-4 text-amber-400" />
+                      <span>Adaptive Daily Quests</span>
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400">Target: GATE DA 2027</span>
                   </div>
-                )}
-              </div>
 
-              <div className="flex items-center gap-3">
-                <DuoButton
-                  size="sm"
-                  variant="ghost"
-                  onClick={handleCheckUpdate}
-                  disabled={isCheckingUpdate}
-                >
-                  {isCheckingUpdate ? 'Checking GitHub...' : 'Check Updates'}
-                </DuoButton>
-                <span className="text-xs font-mono px-3 py-1.5 rounded-xl bg-slate-950 text-slate-400 border border-slate-800">
-                  Repo: jaybhayeom/GradGate
-                </span>
-              </div>
-            </section>
-
-            {/* Official 8 Syllabus Sections */}
-            <section className="flex flex-col gap-5">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl font-black text-white tracking-tight">GATE DA Curriculum Modules</h2>
-                  <p className="text-sm text-slate-400">Official 8 Syllabus Sections loaded from curriculum.db</p>
-                </div>
-                <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-slate-900 text-slate-300 border border-slate-800">
-                  {sections.length} Sections Active
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                {sections.map((sec) => (
-                  <div
-                    key={sec.id}
-                    className="bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 flex flex-col justify-between transition group shadow-md hover:shadow-xl"
-                  >
-                    <div className="flex flex-col gap-2.5">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-lg bg-slate-800 text-slate-300 border border-slate-700">
-                          {sec.code}
-                        </span>
-                        <span className="text-xs font-bold text-emerald-400">
-                          {(sec.official_weightage * 100).toFixed(0)}% Marks
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {dailyTargets.map((q) => (
+                      <div
+                        key={q.id}
+                        className="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-center justify-between text-xs"
+                      >
+                        <div className="flex flex-col truncate pr-2">
+                          <span className="font-bold text-slate-200 truncate">{q.title}</span>
+                          <span className="text-[10px] text-slate-400">
+                            {q.current_value} / {q.target_value} completed
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-black text-emerald-400 whitespace-nowrap">
+                          +{q.xp_reward} XP
                         </span>
                       </div>
-                      <h3 className="font-extrabold text-slate-100 group-hover:text-emerald-400 transition text-base leading-snug">
-                        {sec.title}
-                      </h3>
-                      <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed">
-                        {sec.description}
-                      </p>
-                    </div>
-
-                    <div className="mt-5 pt-4 border-t border-slate-800 flex items-center justify-between">
-                      <span className="text-xs text-slate-500 font-mono">Module #{sec.order_index}</span>
-                      <DuoButton size="sm" variant="primary">
-                        Enter Unit &rarr;
-                      </DuoButton>
-                    </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-            </section>
+            )}
+
+            {/* Winding Snake Path */}
+            <QuestMapView
+              units={units}
+              nodesByUnit={nodesByUnit}
+              nodeProgress={nodeProgress}
+              onSelectNode={(node) => {
+                alert(`Starting ${node.title} (${node.node_type})! Lesson Runner unlocks in Phase 3.`);
+              }}
+              onOpenGuidebook={(unit) => {
+                alert(`Opening Guidebook for: ${unit.title}`);
+              }}
+              onOpenLectures={(unit) => {
+                alert(`Opening Video Lectures for: ${unit.title}`);
+              }}
+            />
           </div>
         )}
+
+        {activeTab === 'leaderboard' && (
+          <LeagueLeaderboardView userStats={userStats} />
+        )}
+
+        {activeTab === 'shop' && (
+          <GemShopView
+            userStats={userStats}
+            onPurchaseStreakFreeze={() => {
+              if (userStats) setUserStats({ ...userStats, gems: userStats.gems - 200, streak_freezes: userStats.streak_freezes + 1 });
+            }}
+            onPurchaseCramMode={() => {
+              if (userStats) setUserStats({ ...userStats, gems: userStats.gems - 450 });
+            }}
+          />
+        )}
+
+        {activeTab === 'design_system' && (
+          <DesignSystemPreview />
+        )}
       </main>
+
+      {/* Mistake Repair Modal */}
+      <MistakeRepairModal
+        isOpen={isRepairModalOpen}
+        mistakes={mistakes}
+        onClose={() => setIsRepairModalOpen(false)}
+        onStartRepairDrill={() => {
+          setIsRepairModalOpen(false);
+          alert('Starting Mistake Drill (5 Questions). All hearts will be refilled upon completion!');
+          if (userStats) setUserStats({ ...userStats, hearts: 5 });
+        }}
+      />
     </div>
   );
 }

@@ -15,6 +15,13 @@ function hashFile(filePath) {
 
 function walkDir(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;
+  const stat = fs.statSync(dir);
+  if (!stat.isDirectory()) {
+    if (/\.(ts|tsx|sql|json|css)$/.test(dir) && !dir.endsWith('edition-lock.json')) {
+      fileList.push(path.relative(process.cwd(), dir));
+    }
+    return fileList;
+  }
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
