@@ -1,6 +1,12 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import { IPC_CHANNELS } from '../shared/ipcContracts';
+import { BACKUP_IPC_CHANNELS } from '../shared/backupIpcContracts';
 import type { SyncProgress } from '../shared/types';
+import type {
+  GateDaBackupPayload,
+  SystemIntegrityReport,
+  AiConfig
+} from '../shared/backupIpcContracts';
 
 const api = {
   // Curriculum Methods
@@ -36,7 +42,21 @@ const api = {
     const handler = (_event: Electron.IpcRendererEvent, progress: SyncProgress) => callback(progress);
     ipcRenderer.on(IPC_CHANNELS.SYNC_PROGRESS_EVENT, handler);
     return () => ipcRenderer.removeListener(IPC_CHANNELS.SYNC_PROGRESS_EVENT, handler);
-  }
+  },
+
+  // Profile Backup & System Integrity Methods
+  exportProfileBackup: (): Promise<GateDaBackupPayload> =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.PROFILE_BACKUP_EXPORT),
+  restoreProfileBackup: (
+    backup: unknown
+  ): Promise<{ success: boolean; rowsRestored: number; message: string }> =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.PROFILE_BACKUP_RESTORE, backup),
+  verifySystemIntegrity: (): Promise<SystemIntegrityReport> =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.SYSTEM_VERIFY_INTEGRITY),
+  getAiConfig: (): Promise<AiConfig> =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.SETTINGS_GET_AI_CONFIG),
+  saveAiConfig: (config: AiConfig): Promise<{ success: boolean }> =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.SETTINGS_SAVE_AI_CONFIG, config)
 };
 
 contextBridge.exposeInMainWorld('api', api);

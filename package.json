@@ -10,6 +10,7 @@
     "build": "electron-vite build",
     "preview": "electron-vite preview",
     "test": "vitest run",
+    "build:bundle": "node scripts/build-github-release-bundle.mjs",
     "verify:edition": "node scripts/edition-lock.mjs verify",
     "verify:no-placeholders": "node scripts/verify-no-placeholders.mjs",
     "verify:youtube": "node scripts/verify-youtube-links.mjs"

@@ -17,6 +17,10 @@ import { LeagueLeaderboardView } from '../features/gamification/LeagueLeaderboar
 import { GemShopView } from '../features/gamification/GemShopView';
 import { MistakeRepairModal } from '../features/gamification/MistakeRepairModal';
 import { DesignSystemPreview } from '../features/design-system/DesignSystemPreview';
+import { TcsIonArenaView, ArenaQuestion } from '../features/arena/TcsIonArenaView';
+import { AnalyticsDashboard } from '../features/analytics/AnalyticsDashboard';
+import { FlashcardVaultView } from '../features/srs/FlashcardVaultView';
+import { SettingsView } from '../features/settings/SettingsView';
 import type {
   SyllabusSection,
   Unit,
@@ -27,7 +31,18 @@ import type {
   AdaptiveDailyTarget,
   YouTubeLecture
 } from '../../shared/types';
-import { Route, Trophy, Diamond, Palette, Target, Compass, Video } from 'lucide-react';
+import {
+  Route,
+  Trophy,
+  Diamond,
+  Palette,
+  Target,
+  Compass,
+  Video,
+  BarChart2,
+  BookOpen,
+  Settings
+} from 'lucide-react';
 
 export default function App(): React.JSX.Element {
   const [sections, setSections] = useState<SyllabusSection[]>([]);
@@ -40,7 +55,18 @@ export default function App(): React.JSX.Element {
   const [dailyTargets, setDailyTargets] = useState<AdaptiveDailyTarget[]>([]);
   const [lectures, setLectures] = useState<YouTubeLecture[]>([]);
   const [isRepairModalOpen, setIsRepairModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'path' | 'studio' | 'lectures' | 'leaderboard' | 'shop' | 'design_system'>('path');
+  const [activeTab, setActiveTab] = useState<
+    | 'path'
+    | 'studio'
+    | 'lectures'
+    | 'arena'
+    | 'analytics'
+    | 'srs'
+    | 'leaderboard'
+    | 'shop'
+    | 'settings'
+    | 'design_system'
+  >('path');
 
   useEffect(() => {
     // 1. Fetch official syllabus sections
@@ -278,6 +304,45 @@ export default function App(): React.JSX.Element {
 
           <button
             type="button"
+            onClick={() => setActiveTab('arena')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+              activeTab === 'arena'
+                ? 'bg-amber-500 text-slate-950 shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Target className="w-4 h-4" />
+            <span>TCS Arena</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('analytics')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+              activeTab === 'analytics'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <BarChart2 className="w-4 h-4" />
+            <span>Analytics</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('srs')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+              activeTab === 'srs'
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <BookOpen className="w-4 h-4" />
+            <span>Flashcards</span>
+          </button>
+
+          <button
+            type="button"
             onClick={() => setActiveTab('leaderboard')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
               activeTab === 'leaderboard'
@@ -300,6 +365,19 @@ export default function App(): React.JSX.Element {
           >
             <Diamond className="w-4 h-4" />
             <span>Shop</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('settings')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+              activeTab === 'settings'
+                ? 'bg-cyan-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Settings className="w-4 h-4" />
+            <span>Settings</span>
           </button>
 
           <button
@@ -389,6 +467,61 @@ export default function App(): React.JSX.Element {
           />
         )}
 
+        {activeTab === 'arena' && (
+          <TcsIonArenaView
+            questions={[
+              {
+                id: 'mock_q1',
+                questionNumber: 1,
+                section: 'GENERAL_APTITUDE',
+                type: 'MCQ',
+                marks: 1.0,
+                negativeMarks: -0.3333333333,
+                promptLatex: 'Choose the grammatically correct option:\\n\\n"Neither of the two candidates _____ selected for the interview."',
+                options: [
+                  { id: 'opt_a', label: 'A', textLatex: 'was' },
+                  { id: 'opt_b', label: 'B', textLatex: 'were' },
+                  { id: 'opt_c', label: 'C', textLatex: 'are' },
+                  { id: 'opt_d', label: 'D', textLatex: 'have been' }
+                ],
+                correctAnswerJson: JSON.stringify('opt_a')
+              },
+              {
+                id: 'mock_q2',
+                questionNumber: 2,
+                section: 'GENERAL_APTITUDE',
+                type: 'NAT',
+                marks: 1.0,
+                negativeMarks: 0.0,
+                promptLatex: 'If $\\\\log_{10}(x) = 3$, find the value of $x / 100$.',
+                correctAnswerJson: '10',
+                natRangeMin: 10,
+                natRangeMax: 10
+              },
+              {
+                id: 'mock_q3',
+                questionNumber: 11,
+                section: 'TECHNICAL_DA',
+                type: 'MSQ',
+                marks: 2.0,
+                negativeMarks: 0.0,
+                promptLatex: 'Which of the following matrices always have real eigenvalues?',
+                options: [
+                  { id: 'opt_1', label: 'A', textLatex: 'Real symmetric matrix' },
+                  { id: 'opt_2', label: 'B', textLatex: 'Hermitian matrix' },
+                  { id: 'opt_3', label: 'C', textLatex: 'Skew-symmetric matrix with non-zero elements' },
+                  { id: 'opt_4', label: 'D', textLatex: 'Arbitrary orthogonal matrix' }
+                ],
+                correctAnswerJson: JSON.stringify(['opt_1', 'opt_2'])
+              }
+            ]}
+          />
+        )}
+
+        {activeTab === 'analytics' && <AnalyticsDashboard />}
+
+        {activeTab === 'srs' && <FlashcardVaultView />}
+
         {activeTab === 'leaderboard' && (
           <LeagueLeaderboardView userStats={userStats} />
         )}
@@ -401,6 +534,20 @@ export default function App(): React.JSX.Element {
             }}
             onPurchaseCramMode={() => {
               if (userStats) setUserStats({ ...userStats, gems: userStats.gems - 450 });
+            }}
+          />
+        )}
+
+        {activeTab === 'settings' && (
+          <SettingsView
+            userStats={userStats}
+            onUpdateTheme={(id) => {
+              if (userStats) setUserStats({ ...userStats, theme_id: id });
+            }}
+            onRefreshStats={() => {
+              if (window.api?.getUserStats) {
+                window.api.getUserStats().then((s) => s && setUserStats(s));
+              }
             }}
           />
         )}

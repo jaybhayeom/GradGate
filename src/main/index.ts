@@ -1,14 +1,20 @@
 import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import path from 'node:path';
+import fs from 'node:fs';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import { DatabaseManager } from './db/databaseManager';
 import { GitHubSyncManager } from './sync/githubSyncManager';
+import { ProfileBackupService } from './services/profileBackupService';
 import {
   IPC_CHANNELS,
   UserStatsUpdateSchema,
   NodeProgressUpdateSchema,
   MistakeRecordSchema
 } from '../shared/ipcContracts';
+import {
+  BACKUP_IPC_CHANNELS,
+  AiConfigSchema
+} from '../shared/backupIpcContracts';
 import type { SyncProgress } from '../shared/types';
 
 let mainWindow: BrowserWindow | null = null;
@@ -142,6 +148,72 @@ function registerIpcHandlers(): void {
   syncManager.on('progress', (progress: SyncProgress) => {
     mainWindow?.webContents.send(IPC_CHANNELS.SYNC_PROGRESS_EVENT, progress);
   });
+
+  // --- Profile Backup & Restore Handlers ---
+  ipcMain.handle(BACKUP_IPC_CHANNELS.PROFILE_BACKUP_EXPORT, async () => {
+    const userProfileDb = dbManager?.getUserProfileDb();
+    if (!userProfileDb) throw new Error('UserProfile database not initialized');
+    return ProfileBackupService.exportProfileBackup(userProfileDb);
+  });
+
+  ipcMain.handle(
+    BACKUP_IPC_CHANNELS.PROFILE_BACKUP_RESTORE,
+    async (_event, rawBackup: unknown) => {
+      const userProfileDb = dbManager?.getUserProfileDb();
+      if (!userProfileDb) throw new Error('UserProfile database not initialized');
+      const validation = ProfileBackupService.validateProfileBackup(rawBackup);
+      if (!validation.valid || !validation.backup) {
+        return {
+          success: false,
+          rowsRestored: 0,
+          message: validation.error || 'Invalid backup payload'
+        };
+      }
+      return ProfileBackupService.restoreProfileBackup(userProfileDb, validation.backup);
+    }
+  );
+
+  // --- Offline System Integrity Handler ---
+  ipcMain.handle(BACKUP_IPC_CHANNELS.SYSTEM_VERIFY_INTEGRITY, async () => {
+    return ProfileBackupService.verifySystemIntegrity(
+      dbManager?.getCurriculumDb(),
+      dbManager?.getUserProfileDb(),
+      'v1.0.0'
+    );
+  });
+
+  // --- Optional AI Bridge Settings Handlers ---
+  ipcMain.handle(BACKUP_IPC_CHANNELS.SETTINGS_GET_AI_CONFIG, async () => {
+    const configPath = path.join(app.getPath('userData'), 'ai-config.json');
+    if (!fs.existsSync(configPath)) {
+      return {
+        geminiApiKey: '',
+        ollamaEndpoint: 'http://localhost:11434',
+        ollamaModel: 'llama3',
+        notebookLmMode: true
+      };
+    }
+    try {
+      return JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    } catch {
+      return {
+        geminiApiKey: '',
+        ollamaEndpoint: 'http://localhost:11434',
+        ollamaModel: 'llama3',
+        notebookLmMode: true
+      };
+    }
+  });
+
+  ipcMain.handle(
+    BACKUP_IPC_CHANNELS.SETTINGS_SAVE_AI_CONFIG,
+    async (_event, rawConfig: unknown) => {
+      const validated = AiConfigSchema.parse(rawConfig);
+      const configPath = path.join(app.getPath('userData'), 'ai-config.json');
+      fs.writeFileSync(configPath, JSON.stringify(validated, null, 2), 'utf8');
+      return { success: true };
+    }
+  );
 }
 
 app.whenReady().then(async () => {

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "schema_version": 1,
+  "published_at": "2026-10-18T17:07:34.320Z",
+  "sha256_checksum": "4d67251b84bd89ab2f3d8921616ce56f16e32a8b334829ac5030be87566074e3",
+  "total_questions": 65,
+  "total_nodes": 22,
+  "total_lectures": 18,
+  "notes": "Official GATE DA 2026 Master Curriculum Seed Bundle (Math + Core CS/AI + Full Mocks)"
+}

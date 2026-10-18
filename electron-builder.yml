@@ -1,0 +1,49 @@
+appId: com.gradgate.app
+productName: GradGate
+copyright: Copyright © 2026 GradGate Team
+
+directories:
+  output: dist
+  buildResources: build
+
+files:
+  - out/**/*
+  - package.json
+
+extraResources:
+  - from: release-bundle
+    to: release-bundle
+    filter:
+      - "**/*"
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: "GradGate-Setup-${version}.${ext}"
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: "GradGate"
+
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: zip
+  category: public.app-category.education
+  artifactName: "GradGate-${version}-${arch}.${ext}"
+
+linux:
+  target:
+    - target: AppImage
+    - target: deb
+  category: Education
+  artifactName: "GradGate-${version}-${arch}.${ext}"
