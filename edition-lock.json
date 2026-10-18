@@ -1,7 +1,8 @@
 {
-  "edition": 2,
+  "edition": 3,
   "lockedPhases": [
-    "phase-0"
+    "phase-0",
+    "phase-1"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -33,6 +34,46 @@
       "sha256": "f8c8245517582c649c84ad51c4f30f6f90f547aa4ec758dc3b207d91a7b74d65",
       "phase": "phase-0",
       "lockedAt": "2026-10-18T15:03:50.850Z"
+    },
+    "src\\renderer\\components\\ui\\AssetSlot.tsx": {
+      "sha256": "894f76b8650aa5f0d00378e47b1e375a45202d60764baba15f9e5d7c157b0771",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.757Z"
+    },
+    "src\\renderer\\components\\ui\\DuoButton.tsx": {
+      "sha256": "8425eac34bdedfb8a9a336c310d5d4777f7affbd747f5f53e9cb87842375623e",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.758Z"
+    },
+    "src\\renderer\\components\\ui\\FeedbackDrawer.tsx": {
+      "sha256": "2135bb3559f8aa12184080239cd79a91d83b22a5c7bb13081e2393a12f04999f",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.758Z"
+    },
+    "src\\renderer\\components\\ui\\FramelessTitleBar.tsx": {
+      "sha256": "de7f425d8e148a7a8cfc2631ab231e0c274042c32c63d3595b576b1b6b658746",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.758Z"
+    },
+    "src\\renderer\\components\\ui\\SnakeProgressBar.tsx": {
+      "sha256": "56b83cbf542f8f790537a82f065e31d699bf480cffd915cce7af2feef40ad252",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.758Z"
+    },
+    "src\\renderer\\components\\ui\\TopStatHud.tsx": {
+      "sha256": "3c1ed2faef9d724a92dc522c6d661d1135d43a7645789004fa43472174268877",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.758Z"
+    },
+    "src\\renderer\\audio\\soundEngine.ts": {
+      "sha256": "00bbdd0e2323ed9eba4edb591c86b42e0ffff907092d6779f1d12f66fc1fa8fc",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.759Z"
+    },
+    "src\\renderer\\styles\\themes.ts": {
+      "sha256": "ffe4575315107a142998d83c11f65fedf0f16a61c19c9f9843992dd7c0e10290",
+      "phase": "phase-1",
+      "lockedAt": "2026-10-18T15:26:09.759Z"
     }
   }
 }
