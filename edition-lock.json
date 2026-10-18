@@ -1,11 +1,12 @@
 {
-  "edition": 6,
+  "edition": 7,
   "lockedPhases": [
     "phase-0",
     "phase-1",
     "phase-2",
     "phase-3",
-    "phase-4"
+    "phase-4",
+    "phase-5"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -187,6 +188,21 @@
       "sha256": "aca3f8cf311d0d90cdaa9faa333e7317a78ad00ed59466d813372be253039fc9",
       "phase": "phase-4",
       "lockedAt": "2026-10-18T15:45:58.566Z"
+    },
+    "src\\renderer\\features\\arena\\TcsIonArenaView.tsx": {
+      "sha256": "de37bc3d069f625d96c0aca8b1da11d6036fbf7098ab70cc71791e44e4b1bab2",
+      "phase": "phase-5",
+      "lockedAt": "2026-10-18T16:04:36.360Z"
+    },
+    "src\\main\\services\\examSessionGuard.ts": {
+      "sha256": "c1ff40f3d19175a540608d6faf17f05bc7e163a6c7b1eb5c978a72edbfd20a41",
+      "phase": "phase-5",
+      "lockedAt": "2026-10-18T16:04:36.361Z"
+    },
+    "src\\renderer\\components\\tools\\GateScientificCalculator.tsx": {
+      "sha256": "a3821c653209c7de6c1d766c64e60e049a4e838f51697043d315895e18ea91ca",
+      "phase": "phase-5",
+      "lockedAt": "2026-10-18T16:04:36.361Z"
     }
   }
 }
