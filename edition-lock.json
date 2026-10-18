@@ -1,9 +1,10 @@
 {
-  "edition": 4,
+  "edition": 5,
   "lockedPhases": [
     "phase-0",
     "phase-1",
-    "phase-2"
+    "phase-2",
+    "phase-3"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -100,6 +101,61 @@
       "sha256": "8eb189d1f054f90e0f7c25e25c9e72ea31ebb8707060f74e6cb3fa054d23014a",
       "phase": "phase-2",
       "lockedAt": "2026-10-18T15:32:19.039Z"
+    },
+    "src\\renderer\\features\\lesson\\ExerciseErrorBoundary.tsx": {
+      "sha256": "2213ca01e6edcec64c8dda9d67179d941b22be4e5fa3d9916d126bf1f306ae57",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.289Z"
+    },
+    "src\\renderer\\features\\lesson\\exercises\\AlgoTracerExercise.tsx": {
+      "sha256": "a3cf4732620a321a5dca3f6c51771a133ea8ec08b8d99168f7a0bff73f74e1d5",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\features\\lesson\\exercises\\MatchMadnessExercise.tsx": {
+      "sha256": "b17b91c8edbef4cd51462593d7cb6752736cf262fcebc0228ab5a2fb16798614",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\features\\lesson\\exercises\\McqExercise.tsx": {
+      "sha256": "1a431bdf3eda8acec12e24d0bf31e7af8be5b79f8bb2496aac5448e14769bcc2",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\features\\lesson\\exercises\\MsqExercise.tsx": {
+      "sha256": "e8d63e304b3bafb059a2cf7a10ad47115373f6ebfd729df0a3fe64cfe3873648",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\features\\lesson\\exercises\\NatKeypadExercise.tsx": {
+      "sha256": "7bef673f7e9caafdce87df2e0e9d35e8fda2091700f9dcfdff297420f6f88a95",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\features\\lesson\\exercises\\TokenBuilderExercise.tsx": {
+      "sha256": "a32f5ce368f62f8764e43346dc372db18355f51880c717b333511aa3db4a9452",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\features\\lesson\\LessonRunner.tsx": {
+      "sha256": "03b0052a25c219ce587698d22316d185a3bc826b8a2ff237ade47ab6358cb43c",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\workers\\codeSandbox.worker.ts": {
+      "sha256": "ef2a9daba24c5f96ce1e2971fef72afb6ddcdaa0a15e5e23780f2697764aae4a",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\workers\\codeSandboxClient.ts": {
+      "sha256": "37b223e72b40ddaabc004cbb083418b2911918ee10e51e56710c3948d126b8a2",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.290Z"
+    },
+    "src\\renderer\\components\\tools\\ScratchpadOverlay.tsx": {
+      "sha256": "e4bb364ff2badb6d0c4da5b37cf2d1f1d2e8e73989b9c8cfc45b2eb852ec9614",
+      "phase": "phase-3",
+      "lockedAt": "2026-10-18T15:39:34.291Z"
     }
   }
 }
