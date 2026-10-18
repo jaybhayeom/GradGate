@@ -1,0 +1,156 @@
+[
+  {
+    "topicId": "DA_01_PROB_STATS",
+    "title": "Bayes theorem, the geometry of changing beliefs",
+    "channelName": "3Blue1Brown",
+    "language": "English",
+    "category": "VISUAL_INTUITION",
+    "youtubeUrl": "https://www.youtube.com/watch?v=HZGCoVF3YvM",
+    "youtubeVideoId": "HZGCoVF3YvM",
+    "durationSec": 915,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_01_PROB_STATS",
+    "title": "Lec-14: BAYES' Theorem | Probability and Statistics | Most Important Topic",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=WOYylyjkq_g",
+    "youtubeVideoId": "WOYylyjkq_g",
+    "durationSec": 720,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_01_PROB_STATS",
+    "title": "Lec-1: Fundamental Principle Of Counting (Basic Permutation) | Probability and Statistics",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Q_u3Lt5AV3c",
+    "youtubeVideoId": "Q_u3Lt5AV3c",
+    "durationSec": 840,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "Vectors | Chapter 1, Essence of linear algebra",
+    "channelName": "3Blue1Brown",
+    "language": "English",
+    "category": "VISUAL_INTUITION",
+    "youtubeUrl": "https://www.youtube.com/watch?v=fNk_zzaMoSs",
+    "youtubeVideoId": "fNk_zzaMoSs",
+    "durationSec": 590,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "1. The Geometry of Linear Equations",
+    "channelName": "MIT OpenCourseWare",
+    "language": "English",
+    "category": "NPTEL_IIT",
+    "youtubeUrl": "https://www.youtube.com/watch?v=J7DzL2_Na80",
+    "youtubeVideoId": "J7DzL2_Na80",
+    "durationSec": 2390,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra",
+    "channelName": "3Blue1Brown",
+    "language": "English",
+    "category": "VISUAL_INTUITION",
+    "youtubeUrl": "https://www.youtube.com/watch?v=PFDu9oVAE-g",
+    "youtubeVideoId": "PFDu9oVAE-g",
+    "durationSec": 1030,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "21. Eigenvalues and Eigenvectors",
+    "channelName": "MIT OpenCourseWare",
+    "language": "English",
+    "category": "NPTEL_IIT",
+    "youtubeUrl": "https://www.youtube.com/watch?v=cdZnhQjJu4I",
+    "youtubeVideoId": "cdZnhQjJu4I",
+    "durationSec": 3080,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "Singular Value Decomposition (the SVD)",
+    "channelName": "MIT OpenCourseWare",
+    "language": "English",
+    "category": "NPTEL_IIT",
+    "youtubeUrl": "https://www.youtube.com/watch?v=mBcLRGuAFUk",
+    "youtubeVideoId": "mBcLRGuAFUk",
+    "durationSec": 2450,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "Linear Algebra | Eigen Value and Eigen Vector in One Shot by GP Sir",
+    "channelName": "Dr.Gajendra Purohit - GATE / IIT JAM / CSIR NET",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=htEQ5tdC8zc",
+    "youtubeVideoId": "htEQ5tdC8zc",
+    "durationSec": 3600,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_02_LIN_ALG",
+    "title": "Eigenvalues and Eigenvectors | Properties and Important Result | Matrices",
+    "channelName": "Dr.Gajendra Purohit",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=1wjXVdwzgX8",
+    "youtubeVideoId": "1wjXVdwzgX8",
+    "durationSec": 1500,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_03_CALC_OPT",
+    "title": "The essence of calculus",
+    "channelName": "3Blue1Brown",
+    "language": "English",
+    "category": "VISUAL_INTUITION",
+    "youtubeUrl": "https://www.youtube.com/watch?v=WUvTyaaNkzM",
+    "youtubeVideoId": "WUvTyaaNkzM",
+    "durationSec": 1020,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_03_CALC_OPT",
+    "title": "What's so special about Euler's number e? | Chapter 5, Essence of calculus",
+    "channelName": "3Blue1Brown",
+    "language": "English",
+    "category": "VISUAL_INTUITION",
+    "youtubeUrl": "https://www.youtube.com/watch?v=m2MIpDrF7Es",
+    "youtubeVideoId": "m2MIpDrF7Es",
+    "durationSec": 880,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_03_CALC_OPT",
+    "title": "One Shot Series - Maxima & Minima For CSIR-NET / IIT-JAM / GATE Exams |Concepts & Examples By Gp Sir",
+    "channelName": "Dr.Gajendra Purohit - GATE / IIT JAM / CSIR NET",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=xjAPwFjJLCQ",
+    "youtubeVideoId": "xjAPwFjJLCQ",
+    "durationSec": 2800,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_08_GEN_APT",
+    "title": "Lec-1: Fundamental Principle Of Counting (Basic Permutation) | Probability and Statistics",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Q_u3Lt5AV3c",
+    "youtubeVideoId": "Q_u3Lt5AV3c",
+    "durationSec": 840,
+    "startTimestampSec": 0
+  }
+]

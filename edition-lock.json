@@ -1,5 +1,5 @@
 {
-  "edition": 8,
+  "edition": 9,
   "lockedPhases": [
     "phase-0",
     "phase-1",
@@ -7,7 +7,8 @@
     "phase-3",
     "phase-4",
     "phase-5",
-    "phase-6"
+    "phase-6",
+    "phase-7"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -219,6 +220,31 @@
       "sha256": "691242d6c73b9f5cdf9d013d489347a2acbaf895287db80e0e3539eab61af661",
       "phase": "phase-6",
       "lockedAt": "2026-10-18T16:09:28.244Z"
+    },
+    "src\\main\\seeds\\seed_01_prob_stats.ts": {
+      "sha256": "b1f9a1b73b88935088b3c7e1851c6aeec45f2a91b30aec929609768ae83a83d0",
+      "phase": "phase-7",
+      "lockedAt": "2026-10-18T16:40:34.228Z"
+    },
+    "src\\main\\seeds\\seed_02_linear_algebra.ts": {
+      "sha256": "bfb7d61b215c0eff2f2bcfa1c30d4e5fb1cd55fbdab83f3ca71ddc73749a3380",
+      "phase": "phase-7",
+      "lockedAt": "2026-10-18T16:40:34.229Z"
+    },
+    "src\\main\\seeds\\seed_03_calculus_opt.ts": {
+      "sha256": "bdf21510b9b4d3722cb2b82e2aca8d14c1c3f8f21dad31f09783f7a6683be05f",
+      "phase": "phase-7",
+      "lockedAt": "2026-10-18T16:40:34.229Z"
+    },
+    "src\\main\\seeds\\seed_08_general_aptitude.ts": {
+      "sha256": "af9e38c5c1ec726f92f35dbdad9ad24cb40441d42dd684d13a3d23bf7da884b7",
+      "phase": "phase-7",
+      "lockedAt": "2026-10-18T16:40:34.229Z"
+    },
+    "src\\main\\seeds\\youtube_lectures.json": {
+      "sha256": "9242a25cbd0381d98ddc99072abba599fe14c96c0fc16ccaaf6103ebcdcae39c",
+      "phase": "phase-7",
+      "lockedAt": "2026-10-18T16:40:34.229Z"
     }
   }
 }
