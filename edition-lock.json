@@ -1,0 +1,38 @@
+{
+  "edition": 2,
+  "lockedPhases": [
+    "phase-0"
+  ],
+  "files": {
+    "src\\main\\db\\curriculumSchema.sql": {
+      "sha256": "a9f73c3600cdca7b1ffbe618f711d9d0c1e3e1a9896026d3d7efac1b1960e3e2",
+      "phase": "phase-0",
+      "lockedAt": "2026-10-18T15:03:50.848Z"
+    },
+    "src\\main\\db\\databaseManager.ts": {
+      "sha256": "a3cc7024b33b1b7d653582971f4cfdc4cc27b08ed2e8807e1950025f180b9738",
+      "phase": "phase-0",
+      "lockedAt": "2026-10-18T15:03:50.849Z"
+    },
+    "src\\main\\db\\userProfileSchema.sql": {
+      "sha256": "88811013efa189c6edde74226cf2adde4553c41191860f60464075dff871e473",
+      "phase": "phase-0",
+      "lockedAt": "2026-10-18T15:03:50.849Z"
+    },
+    "src\\main\\sync\\githubSyncManager.ts": {
+      "sha256": "3ca808b28a6b4ac040c206081ec9b6255388181b048da5cfd169cf5bb8abf0a2",
+      "phase": "phase-0",
+      "lockedAt": "2026-10-18T15:03:50.849Z"
+    },
+    "src\\shared\\ipcContracts.ts": {
+      "sha256": "596cae58825e58aa27f3f810671c8336a7aba14807d538dc92aa8dcf27e4c414",
+      "phase": "phase-0",
+      "lockedAt": "2026-10-18T15:03:50.850Z"
+    },
+    "src\\shared\\types.ts": {
+      "sha256": "f8c8245517582c649c84ad51c4f30f6f90f547aa4ec758dc3b207d91a7b74d65",
+      "phase": "phase-0",
+      "lockedAt": "2026-10-18T15:03:50.850Z"
+    }
+  }
+}

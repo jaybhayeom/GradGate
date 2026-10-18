@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #58cc02;
+    --color-primary-dark: #46a302;
+    --color-secondary: #1cb0f6;
+    --color-gold: #ffc800;
+    --color-danger: #ff4b4b;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+  overflow-x: hidden;
+}
