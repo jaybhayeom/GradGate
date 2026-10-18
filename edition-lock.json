@@ -1,10 +1,11 @@
 {
-  "edition": 5,
+  "edition": 6,
   "lockedPhases": [
     "phase-0",
     "phase-1",
     "phase-2",
-    "phase-3"
+    "phase-3",
+    "phase-4"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -156,6 +157,36 @@
       "sha256": "e4bb364ff2badb6d0c4da5b37cf2d1f1d2e8e73989b9c8cfc45b2eb852ec9614",
       "phase": "phase-3",
       "lockedAt": "2026-10-18T15:39:34.291Z"
+    },
+    "src\\renderer\\features\\studio\\ConceptMindMap.tsx": {
+      "sha256": "8d6ebe7b428ac448283fbd396f51eae8e9dabc7e9d48a37846877b2969b94738",
+      "phase": "phase-4",
+      "lockedAt": "2026-10-18T15:45:58.565Z"
+    },
+    "src\\renderer\\features\\studio\\DeepDivePlayer.tsx": {
+      "sha256": "1a9190c05f33a27542b67b8625c66b10a7c4c3119bcc00e40e8231567f75f28b",
+      "phase": "phase-4",
+      "lockedAt": "2026-10-18T15:45:58.566Z"
+    },
+    "src\\renderer\\features\\studio\\MafsVisualizer.tsx": {
+      "sha256": "9ba19b6adfe996a8f3f22a8f841627d8de79a963b1644dfd4bc81b79d706b591",
+      "phase": "phase-4",
+      "lockedAt": "2026-10-18T15:45:58.566Z"
+    },
+    "src\\renderer\\features\\studio\\VisualConceptStudio.tsx": {
+      "sha256": "7745ce28d6ceac82f03d1ba40b203b82773e77a08e5b7c48ed66d9483642b96b",
+      "phase": "phase-4",
+      "lockedAt": "2026-10-18T15:45:58.566Z"
+    },
+    "src\\renderer\\features\\studio\\VisxMlPlot.tsx": {
+      "sha256": "eccae26fa6dc82f3572e903ea9cdd7e8e6a9cd2cacdc52a00f99cc1e090ba343",
+      "phase": "phase-4",
+      "lockedAt": "2026-10-18T15:45:58.566Z"
+    },
+    "src\\renderer\\features\\lectures\\YouTubeLectureHub.tsx": {
+      "sha256": "aca3f8cf311d0d90cdaa9faa333e7317a78ad00ed59466d813372be253039fc9",
+      "phase": "phase-4",
+      "lockedAt": "2026-10-18T15:45:58.566Z"
     }
   }
 }

@@ -2,7 +2,7 @@
 // APP MAIN COMPONENT
 // Features:
 //   1. FramelessTitleBar & TopStatHud
-//   2. Navigation: Learning Path (Winding Snake), Leaderboard, Gem Shop, Design Studio
+//   2. Navigation: Learning Path, Visual Studio, Video Lectures, Leaderboard, Gem Shop
 //   3. Dynamic Adaptive Daily Quests Banner
 //   4. MistakeRepairModal triggered on zero hearts or manual practice
 // ==============================================================================
@@ -11,6 +11,8 @@ import React, { useEffect, useState } from 'react';
 import { FramelessTitleBar } from '../components/ui/FramelessTitleBar';
 import { TopStatHud } from '../components/ui/TopStatHud';
 import { QuestMapView } from '../features/path/QuestMapView';
+import { VisualConceptStudio } from '../features/studio/VisualConceptStudio';
+import { YouTubeLectureHub } from '../features/lectures/YouTubeLectureHub';
 import { LeagueLeaderboardView } from '../features/gamification/LeagueLeaderboardView';
 import { GemShopView } from '../features/gamification/GemShopView';
 import { MistakeRepairModal } from '../features/gamification/MistakeRepairModal';
@@ -22,9 +24,10 @@ import type {
   NodeProgress,
   UserStats,
   MistakesVaultItem,
-  AdaptiveDailyTarget
+  AdaptiveDailyTarget,
+  YouTubeLecture
 } from '../../shared/types';
-import { Route, Trophy, Diamond, Palette, CheckCircle2, Target } from 'lucide-react';
+import { Route, Trophy, Diamond, Palette, Target, Compass, Video } from 'lucide-react';
 
 export default function App(): React.JSX.Element {
   const [sections, setSections] = useState<SyllabusSection[]>([]);
@@ -35,8 +38,9 @@ export default function App(): React.JSX.Element {
   const [userStats, setUserStats] = useState<UserStats | null>(null);
   const [mistakes, setMistakes] = useState<MistakesVaultItem[]>([]);
   const [dailyTargets, setDailyTargets] = useState<AdaptiveDailyTarget[]>([]);
+  const [lectures, setLectures] = useState<YouTubeLecture[]>([]);
   const [isRepairModalOpen, setIsRepairModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'path' | 'leaderboard' | 'shop' | 'design_system'>('path');
+  const [activeTab, setActiveTab] = useState<'path' | 'studio' | 'lectures' | 'leaderboard' | 'shop' | 'design_system'>('path');
 
   useEffect(() => {
     // 1. Fetch official syllabus sections
@@ -78,6 +82,58 @@ export default function App(): React.JSX.Element {
         setDailyTargets(targets);
       }).catch((err) => console.error(err));
     }
+
+    // 6. Fetch YouTube lectures
+    if (window.api?.getLectures) {
+      window.api.getLectures().then((lecs) => {
+        if (lecs.length > 0) {
+          setLectures(lecs);
+        } else {
+          // Curated initial lectures demo
+          setLectures([
+            {
+              id: 'lec_eigen_mit',
+              topic_id: 'DA_02_LIN_ALG',
+              title: 'Eigenvalues and Eigenvectors — MIT 18.06 (Prof. Gilbert Strang)',
+              channel_name: 'MIT OpenCourseWare',
+              language: 'English',
+              category: 'NPTEL_IIT',
+              youtube_video_id: 'cdZnhQjJu4I',
+              duration_sec: 3060,
+              start_timestamp_sec: 0,
+              verified_at: new Date().toISOString(),
+              created_at: new Date().toISOString()
+            },
+            {
+              id: 'lec_bayes_statquest',
+              topic_id: 'DA_01_PROB_STATS',
+              title: "Bayes' Theorem Intuition & Formula Derivation",
+              channel_name: 'StatQuest with Josh Starmer',
+              language: 'English',
+              category: 'VISUAL_INTUITION',
+              youtube_video_id: '9wCnvr7Xw4E',
+              duration_sec: 720,
+              start_timestamp_sec: 0,
+              verified_at: new Date().toISOString(),
+              created_at: new Date().toISOString()
+            },
+            {
+              id: 'lec_gradient_descent_hindi',
+              topic_id: 'DA_03_CALC_OPT',
+              title: 'Gradient Descent Algorithm from Scratch in Hindi',
+              channel_name: 'CampusX',
+              language: 'Hinglish',
+              category: 'COACHING_PLAYLIST',
+              youtube_video_id: 'sDv4f4s2SB8',
+              duration_sec: 1440,
+              start_timestamp_sec: 0,
+              verified_at: new Date().toISOString(),
+              created_at: new Date().toISOString()
+            }
+          ]);
+        }
+      }).catch((err) => console.error(err));
+    }
   }, []);
 
   // When selected section changes, load its units and nodes
@@ -85,7 +141,6 @@ export default function App(): React.JSX.Element {
     if (!window.api?.getUnits || !selectedSectionId) return;
 
     window.api.getUnits(selectedSectionId).then(async (fetchedUnits) => {
-      // If no units in DB yet for this section, provide initial demo structure
       const validUnits = fetchedUnits.length > 0 ? fetchedUnits : [
         {
           id: `unit_${selectedSectionId}_1`,
@@ -107,7 +162,6 @@ export default function App(): React.JSX.Element {
 
       setUnits(validUnits);
 
-      // Load nodes for each unit
       const nodeMap: Record<string, SteppingNode[]> = {};
       for (const u of validUnits) {
         let nodes: SteppingNode[] = [];
@@ -181,25 +235,51 @@ export default function App(): React.JSX.Element {
       />
 
       {/* 3. Navigation Bar */}
-      <div className="max-w-4xl w-full mx-auto px-6 pt-5 flex items-center justify-between">
-        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800">
+      <div className="max-w-6xl w-full mx-auto px-6 pt-5 flex items-center justify-between">
+        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800 overflow-x-auto">
           <button
             type="button"
             onClick={() => setActiveTab('path')}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
               activeTab === 'path'
                 ? 'bg-[#58CC02] text-slate-950 shadow-md'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
             <Route className="w-4 h-4" />
-            <span>Learning Path</span>
+            <span>Path</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('studio')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+              activeTab === 'studio'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Compass className="w-4 h-4" />
+            <span>Visual Studio</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('lectures')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+              activeTab === 'lectures'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Video className="w-4 h-4" />
+            <span>Lectures</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('leaderboard')}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
               activeTab === 'leaderboard'
                 ? 'bg-[#FFC800] text-slate-950 shadow-md'
                 : 'text-slate-400 hover:text-white'
@@ -212,20 +292,20 @@ export default function App(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setActiveTab('shop')}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
               activeTab === 'shop'
                 ? 'bg-[#1CB0F6] text-white shadow-md'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
             <Diamond className="w-4 h-4" />
-            <span>Gem Shop</span>
+            <span>Shop</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('design_system')}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
               activeTab === 'design_system'
                 ? 'bg-purple-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-white'
@@ -241,7 +321,7 @@ export default function App(): React.JSX.Element {
           onClick={() => setIsRepairModalOpen(true)}
           className="px-3.5 py-2 rounded-xl bg-rose-950/40 hover:bg-rose-950/60 border border-rose-900/60 text-rose-300 text-xs font-bold transition flex items-center gap-2"
         >
-          <span>Mistakes Vault</span>
+          <span>Mistakes</span>
           <span className="px-1.5 py-0.5 rounded-full bg-rose-500 text-white text-[10px] font-black">
             {mistakes.length}
           </span>
@@ -252,7 +332,6 @@ export default function App(): React.JSX.Element {
       <main className="flex-1 w-full mx-auto pb-16">
         {activeTab === 'path' && (
           <div className="flex flex-col items-center">
-            {/* Daily Quests Mini Banner */}
             {dailyTargets.length > 0 && (
               <div className="w-full max-w-2xl px-6 mt-6">
                 <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-5 flex flex-col gap-3 shadow-lg">
@@ -286,22 +365,28 @@ export default function App(): React.JSX.Element {
               </div>
             )}
 
-            {/* Winding Snake Path */}
             <QuestMapView
               units={units}
               nodesByUnit={nodesByUnit}
               nodeProgress={nodeProgress}
               onSelectNode={(node) => {
-                alert(`Starting ${node.title} (${node.node_type})! Lesson Runner unlocks in Phase 3.`);
+                alert(`Starting ${node.title} (${node.node_type})!`);
               }}
-              onOpenGuidebook={(unit) => {
-                alert(`Opening Guidebook for: ${unit.title}`);
-              }}
-              onOpenLectures={(unit) => {
-                alert(`Opening Video Lectures for: ${unit.title}`);
-              }}
+              onOpenGuidebook={() => setActiveTab('studio')}
+              onOpenLectures={() => setActiveTab('lectures')}
             />
           </div>
+        )}
+
+        {activeTab === 'studio' && <VisualConceptStudio />}
+
+        {activeTab === 'lectures' && (
+          <YouTubeLectureHub
+            lectures={lectures}
+            onRewardXp={(xp) => {
+              if (userStats) setUserStats({ ...userStats, xp: userStats.xp + xp });
+            }}
+          />
         )}
 
         {activeTab === 'leaderboard' && (

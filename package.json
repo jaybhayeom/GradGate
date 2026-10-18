@@ -21,6 +21,7 @@
     "framer-motion": "^14.3.0",
     "katex": "^0.19.0",
     "lucide-react": "^1.59.0",
+    "mafs": "^0.21.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zod": "^3.24.2"
