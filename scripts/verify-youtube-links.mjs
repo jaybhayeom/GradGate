@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const REGISTRY_PATH = path.resolve(process.cwd(), 'src/main/seeds/youtube_lectures.json');
+const SEEDS_DIR = path.resolve(process.cwd(), 'src/main/seeds');
 
 async function verifyYouTubeUrl(videoUrl) {
   const oembedUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl)}&format=json`;
@@ -14,13 +14,19 @@ async function verifyYouTubeUrl(videoUrl) {
 }
 
 async function main() {
-  if (!fs.existsSync(REGISTRY_PATH)) {
-    console.error(`[YOUTUBE-VERIFY] Missing file: ${REGISTRY_PATH}`);
+  if (!fs.existsSync(SEEDS_DIR)) {
+    console.error(`[YOUTUBE-VERIFY] Missing directory: ${SEEDS_DIR}`);
     process.exit(1);
   }
-  const lectures = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+
+  const jsonFiles = fs.readdirSync(SEEDS_DIR).filter((f) => f.startsWith('youtube_lectures') && f.endsWith('.json'));
+  let allLectures = [];
+  for (const f of jsonFiles) {
+    const content = JSON.parse(fs.readFileSync(path.join(SEEDS_DIR, f), 'utf8'));
+    allLectures = allLectures.concat(content);
+  }
   let failed = 0;
-  for (const item of lectures) {
+  for (const item of allLectures) {
     try {
       const meta = await verifyYouTubeUrl(item.youtubeUrl);
       console.log(`[OK] [${item.language}] ${item.topicId} -> "${meta.title}" by ${meta.author_name}`);
@@ -33,7 +39,7 @@ async function main() {
     console.error(`\n[YOUTUBE-VERIFY FAILED] ${failed} invalid or hallucinated YouTube URLs found.`);
     process.exit(1);
   }
-  console.log(`\n[YOUTUBE-VERIFY PASS] All ${lectures.length} YouTube lectures verified live.`);
+  console.log(`\n[YOUTUBE-VERIFY PASS] All ${allLectures.length} YouTube lectures verified live.`);
 }
 
 main();

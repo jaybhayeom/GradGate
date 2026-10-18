@@ -10,6 +10,10 @@ const targetDirs = process.argv.slice(4);
 
 function hashFile(filePath) {
   const buffer = fs.readFileSync(filePath);
+  if (/\.(ts|tsx|sql|json|css)$/.test(filePath)) {
+    const text = buffer.toString('utf8').replace(/\r\n/g, '\n');
+    return crypto.createHash('sha256').update(text).digest('hex');
+  }
   return crypto.createHash('sha256').update(buffer).digest('hex');
 }
 

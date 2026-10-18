@@ -1,0 +1,46 @@
+[
+  {
+    "topicId": "DA_04_PROG_DSA",
+    "title": "Lec-7: Breadth First Search (BFS) with example | Uninformed Search | Artificial Intelligence",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=qul0f79gxGs",
+    "youtubeVideoId": "qul0f79gxGs",
+    "durationSec": 630,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_05_DBMS_DW",
+    "title": "Lec-33: All Normal Forms with Real life examples | 1NF 2NF 3NF BCNF 4NF 5NF | All in One",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=EGEwkad_llA",
+    "youtubeVideoId": "EGEwkad_llA",
+    "durationSec": 1380,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_06_ML",
+    "title": "Lec-40: Support Vector Machines (SVMs) | Machine Learning",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=NDqACjz5j8g",
+    "youtubeVideoId": "NDqACjz5j8g",
+    "durationSec": 1140,
+    "startTimestampSec": 0
+  },
+  {
+    "topicId": "DA_07_AI",
+    "title": "Lec-20: A* algorithm in AI (artificial intelligence) in HINDI | A* algorithm with example",
+    "channelName": "Gate Smashers",
+    "language": "Hinglish",
+    "category": "COACHING_PLAYLIST",
+    "youtubeUrl": "https://www.youtube.com/watch?v=tvAh0JZF2YE",
+    "youtubeVideoId": "tvAh0JZF2YE",
+    "durationSec": 900,
+    "startTimestampSec": 0
+  }
+]

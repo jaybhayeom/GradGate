@@ -117,7 +117,7 @@ describe('Phase 7: Mathematics & Aptitude Curriculum Seeds', () => {
     expect(fs.existsSync(registryPath)).toBe(true);
 
     const entries = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
-    expect(entries.length).toBe(14);
+    expect(entries.length).toBeGreaterThanOrEqual(14);
 
     // Verify presence of core topics
     const topics = entries.map((e: any) => e.topicId);

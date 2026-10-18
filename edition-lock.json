@@ -1,5 +1,5 @@
 {
-  "edition": 9,
+  "edition": 10,
   "lockedPhases": [
     "phase-0",
     "phase-1",
@@ -8,7 +8,8 @@
     "phase-4",
     "phase-5",
     "phase-6",
-    "phase-7"
+    "phase-7",
+    "phase-8"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -245,6 +246,41 @@
       "sha256": "9242a25cbd0381d98ddc99072abba599fe14c96c0fc16ccaaf6103ebcdcae39c",
       "phase": "phase-7",
       "lockedAt": "2026-10-18T16:40:34.229Z"
+    },
+    "src\\main\\seeds\\index.ts": {
+      "sha256": "7afaf4369917a7a2b5b0eb79e04dfd832b08b5f6ce6ff5664f0f79f8ad185e8f",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.154Z"
+    },
+    "src\\main\\seeds\\seed_04_dsa_python.ts": {
+      "sha256": "1d466c4e806c4aed85675dbb86576b145bb75e17f3327af43d5a9dfd46a43515",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.155Z"
+    },
+    "src\\main\\seeds\\seed_05_dbms_dw.ts": {
+      "sha256": "2f7ed542d6b3ca3877078264915ee7d1be8be09a5b65130b44073a31c109c38c",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.155Z"
+    },
+    "src\\main\\seeds\\seed_06_machine_learning.ts": {
+      "sha256": "1bef8a318ec2e6702f57e5cd9616f81cb7ab042ec763db829d2739b103c7266f",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.155Z"
+    },
+    "src\\main\\seeds\\seed_07_artificial_intelligence.ts": {
+      "sha256": "e46b033e4d58a27ccc507a46e5fe7244305a54accaec7a1fa410f908fad55a23",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.155Z"
+    },
+    "src\\main\\seeds\\seed_09_full_mocks.ts": {
+      "sha256": "51b974403b27e8eff1a6a32313457f0c73b14cd1f78d5a284eddbece3a87f3e5",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.155Z"
+    },
+    "src\\main\\seeds\\youtube_lectures_core_cs.json": {
+      "sha256": "89653d09f9bb96561cea1774d868425f3d9c00cdc81b90076186c63c9f83cabb",
+      "phase": "phase-8",
+      "lockedAt": "2026-10-18T16:52:50.155Z"
     }
   }
 }
