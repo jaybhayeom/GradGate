@@ -1,12 +1,13 @@
 {
-  "edition": 7,
+  "edition": 8,
   "lockedPhases": [
     "phase-0",
     "phase-1",
     "phase-2",
     "phase-3",
     "phase-4",
-    "phase-5"
+    "phase-5",
+    "phase-6"
   ],
   "files": {
     "src\\main\\db\\curriculumSchema.sql": {
@@ -203,6 +204,21 @@
       "sha256": "a3821c653209c7de6c1d766c64e60e049a4e838f51697043d315895e18ea91ca",
       "phase": "phase-5",
       "lockedAt": "2026-10-18T16:04:36.361Z"
+    },
+    "src\\main\\services\\rankPredictor.ts": {
+      "sha256": "65e37541badcd848688a3219d4df1c215539c58b44f1ce9693acfc0b6e737f59",
+      "phase": "phase-6",
+      "lockedAt": "2026-10-18T16:09:28.243Z"
+    },
+    "src\\renderer\\features\\analytics\\AnalyticsDashboard.tsx": {
+      "sha256": "ba352ad04136f8551ade4e39b5b7f4e74ede2fe7c72d5a629b9b17045f51e291",
+      "phase": "phase-6",
+      "lockedAt": "2026-10-18T16:09:28.244Z"
+    },
+    "src\\renderer\\features\\srs\\FlashcardVaultView.tsx": {
+      "sha256": "691242d6c73b9f5cdf9d013d489347a2acbaf895287db80e0e3539eab61af661",
+      "phase": "phase-6",
+      "lockedAt": "2026-10-18T16:09:28.244Z"
     }
   }
 }
