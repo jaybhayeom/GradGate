@@ -10,7 +10,9 @@ export const BACKUP_IPC_CHANNELS = {
   PROFILE_BACKUP_RESTORE: 'profile:backup-restore',
   SYSTEM_VERIFY_INTEGRITY: 'system:verify-integrity',
   SETTINGS_GET_AI_CONFIG: 'settings:get-ai-config',
-  SETTINGS_SAVE_AI_CONFIG: 'settings:save-ai-config'
+  SETTINGS_SAVE_AI_CONFIG: 'settings:save-ai-config',
+  MOCK_GET_PAPERS: 'mock:get-papers',
+  MOCK_GET_PAPER_QUESTIONS: 'mock:get-paper-questions'
 } as const;
 
 export const AiConfigSchema = z.object({

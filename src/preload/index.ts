@@ -56,7 +56,13 @@ const api = {
   getAiConfig: (): Promise<AiConfig> =>
     ipcRenderer.invoke(BACKUP_IPC_CHANNELS.SETTINGS_GET_AI_CONFIG),
   saveAiConfig: (config: AiConfig): Promise<{ success: boolean }> =>
-    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.SETTINGS_SAVE_AI_CONFIG, config)
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.SETTINGS_SAVE_AI_CONFIG, config),
+
+  // Mock Papers & Questions
+  getMockPapers: () =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.MOCK_GET_PAPERS),
+  getMockPaperQuestions: (paperId: string) =>
+    ipcRenderer.invoke(BACKUP_IPC_CHANNELS.MOCK_GET_PAPER_QUESTIONS, paperId)
 };
 
 contextBridge.exposeInMainWorld('api', api);

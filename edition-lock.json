@@ -284,9 +284,9 @@
       "lockedAt": "2026-10-18T16:52:50.155Z"
     },
     "src\\main\\index.ts": {
-      "sha256": "ae3dc29f1aa49e4a091061d8044f290d01e5fa65186873566fc6b8c2a70b9464",
+      "sha256": "3cdd76456805f2b1c8241093ead678ce76c108a62dc16fea02f549fc3017072d",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.241Z"
+      "lockedAt": "2026-10-27T17:47:03.646Z"
     },
     "src\\main\\services\\profileBackupService.ts": {
       "sha256": "ad4849cf9de9cd0da330aa322b38657fc699388c0fcbff942d6833bb28d4a0e8",
@@ -299,9 +299,9 @@
       "lockedAt": "2026-10-18T17:07:04.242Z"
     },
     "src\\preload\\index.ts": {
-      "sha256": "9cf418a3507803c2627f1e2213bbb07906af5062829c822adad66112ed825da0",
+      "sha256": "b28b5dbc7c41e9d83a7dc234f5e068b2f7463e4eb000bf627cf6453597f2f1a9",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.243Z"
+      "lockedAt": "2026-10-27T17:47:03.649Z"
     },
     "src\\renderer\\features\\design-system\\DesignSystemPreview.tsx": {
       "sha256": "a5791008ca5061f4fc467f60ed71e01770a4b71d8b465bf4b387e035f05cb230",
@@ -314,9 +314,9 @@
       "lockedAt": "2026-10-18T17:07:04.243Z"
     },
     "src\\renderer\\src\\App.tsx": {
-      "sha256": "4e42c1ae81037a9b68e42d6bd623c01997c90a0791db604f927180dc61b024f5",
+      "sha256": "099285a4c92e09ef8e180a3e7c8c846a8c8ba1dec47b34eeee9e23d7d9bda77f",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.243Z"
+      "lockedAt": "2026-10-27T17:47:03.650Z"
     },
     "src\\renderer\\src\\index.css": {
       "sha256": "2feb71106f72c7111b322e684b79070d1385a2635898d35da248c8c0166e7b6e",
@@ -324,14 +324,19 @@
       "lockedAt": "2026-10-18T17:07:04.244Z"
     },
     "src\\renderer\\src\\main.tsx": {
-      "sha256": "631a3d40ef113b9c3c85e783353a6ad3d230ad264a350daad53281f38929c7e2",
+      "sha256": "b3d39401bdad7a2f834fed04e659b1b1c573e93812a3d8518269bf97aa6e2e2d",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.244Z"
+      "lockedAt": "2026-10-27T17:47:03.650Z"
     },
     "src\\shared\\backupIpcContracts.ts": {
-      "sha256": "bd6a1ca7ccd3e0886c9a532347cda50bb4a9f637d0cf10c47c554770f122c075",
+      "sha256": "8fef7bb34a18bf112be0bf4d3b14e37dcd9bc1f66d2657ea3076733b3064a8e5",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.244Z"
+      "lockedAt": "2026-10-27T17:47:03.650Z"
+    },
+    "src\\renderer\\features\\landing\\LandingDashboardView.tsx": {
+      "sha256": "d596fcd54f946a1fdecfd8137fa964852305ea3054185dea03a7c05956791f32",
+      "phase": "phase-9",
+      "lockedAt": "2026-10-27T17:47:03.650Z"
     }
   }
 }

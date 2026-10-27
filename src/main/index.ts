@@ -36,7 +36,9 @@ function createWindow(): void {
       height: 36
     },
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.mjs'),
+      preload: fs.existsSync(path.join(__dirname, '../preload/index.js'))
+        ? path.join(__dirname, '../preload/index.js')
+        : path.join(__dirname, '../preload/index.mjs'),
       sandbox: false,
       contextIsolation: true,
       nodeIntegration: false
@@ -214,6 +216,55 @@ function registerIpcHandlers(): void {
       return { success: true };
     }
   );
+
+  // --- Mock Papers & Full Arena Questions ---
+  ipcMain.handle(BACKUP_IPC_CHANNELS.MOCK_GET_PAPERS, async () => {
+    const currDb = dbManager?.getCurriculumDb();
+    if (!currDb) return [];
+    try {
+      return currDb.prepare('SELECT * FROM mock_papers ORDER BY total_questions DESC').all();
+    } catch {
+      return [];
+    }
+  });
+
+  ipcMain.handle(
+    BACKUP_IPC_CHANNELS.MOCK_GET_PAPER_QUESTIONS,
+    async (_event, paperId: string) => {
+      const currDb = dbManager?.getCurriculumDb();
+      if (!currDb) return [];
+      try {
+        const rows = currDb
+          .prepare(`
+            SELECT 
+              q.id,
+              mpq.question_number as questionNumber,
+              mpq.section_category as section,
+              q.question_type as type,
+              q.marks,
+              q.negative_marks as negativeMarks,
+              q.prompt_latex as promptLatex,
+              q.options_json,
+              q.correct_answer_json as correctAnswerJson,
+              q.nat_range_min as natRangeMin,
+              q.nat_range_max as natRangeMax,
+              q.solution_latex as solutionLatex
+            FROM mock_paper_questions mpq
+            JOIN questions q ON mpq.question_id = q.id
+            WHERE mpq.mock_paper_id = ?
+            ORDER BY mpq.question_number ASC
+          `)
+          .all(paperId) as Record<string, unknown>[];
+
+        return rows.map((r) => ({
+          ...r,
+          options: r.options_json ? JSON.parse(r.options_json as string) : undefined
+        }));
+      } catch {
+        return [];
+      }
+    }
+  );
 }
 
 app.whenReady().then(async () => {
@@ -227,21 +278,59 @@ app.whenReady().then(async () => {
   const userData = app.getPath('userData');
   const contentDir = path.join(userData, 'content');
   const profileDir = path.join(userData, 'profile');
+  if (!fs.existsSync(contentDir)) fs.mkdirSync(contentDir, { recursive: true });
+  if (!fs.existsSync(profileDir)) fs.mkdirSync(profileDir, { recursive: true });
+
+  const bundledSeedCandidates = [
+    path.resolve(__dirname, '../../release-bundle/curriculum.db'),
+    path.resolve(process.cwd(), 'release-bundle/curriculum.db'),
+    path.join(__dirname, 'release-bundle/curriculum.db')
+  ];
+  let localSeedPath: string | undefined;
+  for (const p of bundledSeedCandidates) {
+    if (fs.existsSync(p)) {
+      localSeedPath = p;
+      break;
+    }
+  }
+
+  // Pre-seed curriculum.db if not yet in userData
+  const targetCurriculumDb = path.join(contentDir, 'curriculum.db');
+  if (!fs.existsSync(targetCurriculumDb) && localSeedPath) {
+    try {
+      fs.copyFileSync(localSeedPath, targetCurriculumDb);
+    } catch (seedErr) {
+      console.warn('[GRADGATE-MAIN] Initial seed copy error:', seedErr);
+    }
+  }
 
   // 2. Setup GitHub Sync Manager
   syncManager = new GitHubSyncManager({
     contentDir,
     repoOwner: 'jaybhayeom',
     repoName: 'GradGate',
-    branch: 'main'
+    branch: 'main',
+    bundledSeedPath: localSeedPath
   });
 
-  // 3. Setup Dual-Database Manager
+  // 3. Resolve schemas across environments
+  const resolveSchema = (filename: string): string => {
+    const candidates = [
+      path.join(__dirname, 'db', filename),
+      path.resolve(__dirname, '../../src/main/db', filename),
+      path.resolve(process.cwd(), 'src/main/db', filename)
+    ];
+    for (const c of candidates) {
+      if (fs.existsSync(c)) return c;
+    }
+    return path.join(__dirname, 'db', filename);
+  };
+
   dbManager = new DatabaseManager({
-    curriculumDbPath: path.join(contentDir, 'curriculum.db'),
+    curriculumDbPath: targetCurriculumDb,
     userProfileDbPath: path.join(profileDir, 'user_profile.db'),
-    curriculumSchemaPath: path.join(__dirname, 'db/curriculumSchema.sql'),
-    userProfileSchemaPath: path.join(__dirname, 'db/userProfileSchema.sql')
+    curriculumSchemaPath: resolveSchema('curriculumSchema.sql'),
+    userProfileSchemaPath: resolveSchema('userProfileSchema.sql')
   });
 
   // Bootstrap first launch (checks online, falls back to local schema seed)
