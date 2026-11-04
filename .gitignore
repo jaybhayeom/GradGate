@@ -11,3 +11,5 @@ yarn-error.log*
 .idea/
 *.tmp
 *.tmp-*
+*.tsbuildinfo
+test-content-dir/

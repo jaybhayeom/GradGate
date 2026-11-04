@@ -222,3 +222,24 @@ export interface UpdateCheckResult {
   latestVersion: string;
   manifest?: ContentManifest | null;
 }
+
+export type QuestType =
+  | 'NODE_COMPLETE'
+  | 'MISTAKE_REPAIR'
+  | 'TIMED_BLITZ'
+  | 'SRS_FLASHCARDS'
+  | 'LECTURE_WATCH';
+
+export interface AdaptiveDailyTarget {
+  id: string;
+  target_date: string;
+  quest_type: QuestType;
+  title: string;
+  description: string;
+  target_value: number;
+  current_value: number;
+  xp_reward: number;
+  completed: number;
+  created_at: string;
+  updated_at: string;
+}

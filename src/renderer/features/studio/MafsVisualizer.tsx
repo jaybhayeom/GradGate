@@ -180,7 +180,7 @@ export const MafsVisualizer: React.FC = () => {
       {sceneMode === 'LINEAR_ALGEBRA' && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs">
           <div className="flex flex-col gap-2">
-            <span className="font-bold text-slate-300">Basis Vector \hat{i} (Col 1)</span>
+            <span className="font-bold text-slate-300">{'Basis Vector \\hat{i} (Col 1)'}</span>
             <div className="flex items-center gap-2">
               <label className="text-slate-500 font-mono">x:</label>
               <input
@@ -210,7 +210,7 @@ export const MafsVisualizer: React.FC = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <span className="font-bold text-slate-300">Basis Vector \hat{j} (Col 2)</span>
+            <span className="font-bold text-slate-300">{'Basis Vector \\hat{j} (Col 2)'}</span>
             <div className="flex items-center gap-2">
               <label className="text-slate-500 font-mono">x:</label>
               <input

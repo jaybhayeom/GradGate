@@ -108,7 +108,7 @@ export function LandingDashboardView({
                 onClick={() => onNavigateTab('path')}
               >
                 <div className="flex items-center gap-2">
-                  <Route className="w-4 h-4" weight="bold" />
+                  <Path className="w-4 h-4" weight="bold" />
                   <span>Resume Learning Path</span>
                 </div>
               </DuoButton>

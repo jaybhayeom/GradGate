@@ -41,7 +41,9 @@ const api = {
   onSyncProgress: (callback: (progress: SyncProgress) => void) => {
     const handler = (_event: Electron.IpcRendererEvent, progress: SyncProgress) => callback(progress);
     ipcRenderer.on(IPC_CHANNELS.SYNC_PROGRESS_EVENT, handler);
-    return () => ipcRenderer.removeListener(IPC_CHANNELS.SYNC_PROGRESS_EVENT, handler);
+    return () => {
+      ipcRenderer.removeListener(IPC_CHANNELS.SYNC_PROGRESS_EVENT, handler);
+    };
   },
 
   // Profile Backup & System Integrity Methods

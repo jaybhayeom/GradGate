@@ -93,7 +93,9 @@ export function SettingsView({
       const unsub = window.api.onSyncProgress((prog) => {
         setSyncProgress(prog);
       });
-      return () => unsub();
+      return () => {
+        if (typeof unsub === 'function') unsub();
+      };
     }
   }, []);
 
@@ -393,7 +395,7 @@ export function SettingsView({
               </DuoButton>
             ) : (
               <DuoButton
-                variant="warning"
+                variant="gold"
                 size="sm"
                 onClick={handleApplyUpdate}
                 disabled={isSyncing}
@@ -512,7 +514,7 @@ export function SettingsView({
 
           <div className="flex gap-3">
             <DuoButton
-              variant="warning"
+              variant="gold"
               size="sm"
               onClick={handleExportBackup}
               className="flex-1"

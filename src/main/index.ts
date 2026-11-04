@@ -27,14 +27,9 @@ function createWindow(): void {
     height: 800,
     minWidth: 1024,
     minHeight: 700,
-    show: false,
+    show: true,
     autoHideMenuBar: true,
-    titleBarStyle: 'hidden',
-    titleBarOverlay: {
-      color: '#0F172A',
-      symbolColor: '#F8FAFC',
-      height: 36
-    },
+    title: 'GradGate — GATE DA Desktop',
     webPreferences: {
       preload: fs.existsSync(path.join(__dirname, '../preload/index.js'))
         ? path.join(__dirname, '../preload/index.js')
@@ -47,6 +42,15 @@ function createWindow(): void {
 
   mainWindow.on('ready-to-show', () => {
     mainWindow?.show();
+    mainWindow?.focus();
+  });
+
+  mainWindow.webContents.on('did-fail-load', (_event, errorCode, errorDescription, validatedURL) => {
+    console.error(`[MAIN] Failed to load ${validatedURL} (${errorCode}: ${errorDescription})`);
+  });
+
+  mainWindow.webContents.on('console-message', (_event, level, message, line, sourceId) => {
+    console.log(`[RENDERER-CONSOLE L${level}] ${message} (${sourceId}:${line})`);
   });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -333,13 +337,21 @@ app.whenReady().then(async () => {
     userProfileSchemaPath: resolveSchema('userProfileSchema.sql')
   });
 
-  // Bootstrap first launch (checks online, falls back to local schema seed)
-  await syncManager.bootstrapFirstLaunch();
-  dbManager.initialize();
+  // Initialize local database immediately
+  try {
+    dbManager.initialize();
+  } catch (initErr) {
+    console.warn('[GRADGATE-MAIN] Database initialization warning:', initErr);
+  }
 
-  // 4. Register IPC Handlers and Create Window
+  // Register IPC Handlers and show Window immediately
   registerIpcHandlers();
   createWindow();
+
+  // Run GitHub OTA sync check asynchronously in background (never blocks UI launch)
+  syncManager.bootstrapFirstLaunch().catch((syncErr) => {
+    console.warn('[GRADGATE-MAIN] Non-blocking bootstrap warning:', syncErr);
+  });
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();

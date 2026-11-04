@@ -39,9 +39,9 @@
       "lockedAt": "2026-10-18T15:03:50.850Z"
     },
     "src\\shared\\types.ts": {
-      "sha256": "f8c8245517582c649c84ad51c4f30f6f90f547aa4ec758dc3b207d91a7b74d65",
+      "sha256": "eb03fdac2475e184027f9a795a08dac50b67680fca010045f12a943747e84ed6",
       "phase": "phase-0",
-      "lockedAt": "2026-10-18T15:03:50.850Z"
+      "lockedAt": "2026-11-04T07:49:23.580Z"
     },
     "src\\renderer\\components\\ui\\AssetSlot.tsx": {
       "sha256": "894f76b8650aa5f0d00378e47b1e375a45202d60764baba15f9e5d7c157b0771",
@@ -174,9 +174,9 @@
       "lockedAt": "2026-10-18T15:45:58.566Z"
     },
     "src\\renderer\\features\\studio\\MafsVisualizer.tsx": {
-      "sha256": "9ba19b6adfe996a8f3f22a8f841627d8de79a963b1644dfd4bc81b79d706b591",
+      "sha256": "0d799a167a93b855943bb1d078530bc9be58bbc672673d13484ec9ffe796f6a0",
       "phase": "phase-4",
-      "lockedAt": "2026-10-18T15:45:58.566Z"
+      "lockedAt": "2026-11-04T07:49:23.587Z"
     },
     "src\\renderer\\features\\studio\\VisualConceptStudio.tsx": {
       "sha256": "7745ce28d6ceac82f03d1ba40b203b82773e77a08e5b7c48ed66d9483642b96b",
@@ -284,9 +284,9 @@
       "lockedAt": "2026-10-18T16:52:50.155Z"
     },
     "src\\main\\index.ts": {
-      "sha256": "3cdd76456805f2b1c8241093ead678ce76c108a62dc16fea02f549fc3017072d",
+      "sha256": "98a54feda19034cebc18bd293f076377cd1ddb18173bd6d0afe203c68ab156e6",
       "phase": "phase-9",
-      "lockedAt": "2026-10-27T17:47:03.646Z"
+      "lockedAt": "2026-11-04T07:49:23.587Z"
     },
     "src\\main\\services\\profileBackupService.ts": {
       "sha256": "ad4849cf9de9cd0da330aa322b38657fc699388c0fcbff942d6833bb28d4a0e8",
@@ -299,9 +299,9 @@
       "lockedAt": "2026-10-18T17:07:04.242Z"
     },
     "src\\preload\\index.ts": {
-      "sha256": "b28b5dbc7c41e9d83a7dc234f5e068b2f7463e4eb000bf627cf6453597f2f1a9",
+      "sha256": "afa994ed29cb68513c0048aceff884bf4a2702cda055a27485714c2e193fcd25",
       "phase": "phase-9",
-      "lockedAt": "2026-10-27T17:47:03.649Z"
+      "lockedAt": "2026-11-04T07:49:23.588Z"
     },
     "src\\renderer\\features\\design-system\\DesignSystemPreview.tsx": {
       "sha256": "a5791008ca5061f4fc467f60ed71e01770a4b71d8b465bf4b387e035f05cb230",
@@ -309,9 +309,9 @@
       "lockedAt": "2026-10-18T17:07:04.243Z"
     },
     "src\\renderer\\features\\settings\\SettingsView.tsx": {
-      "sha256": "bb665f95fd6b4e5047fb31f46f73a169a5a4ce457990e7405e913633dbc2b35b",
+      "sha256": "5b2b93903c4ee8f6f8696f8c2d97801311aaa30eb610eeb0e04c8abd1af31c37",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.243Z"
+      "lockedAt": "2026-11-04T07:49:23.589Z"
     },
     "src\\renderer\\src\\App.tsx": {
       "sha256": "099285a4c92e09ef8e180a3e7c8c846a8c8ba1dec47b34eeee9e23d7d9bda77f",
@@ -324,9 +324,9 @@
       "lockedAt": "2026-10-18T17:07:04.244Z"
     },
     "src\\renderer\\src\\main.tsx": {
-      "sha256": "b3d39401bdad7a2f834fed04e659b1b1c573e93812a3d8518269bf97aa6e2e2d",
+      "sha256": "065ad09ee69c109d8b4024c000aa8936a9aa9e3fcaee6375c43245648162034f",
       "phase": "phase-9",
-      "lockedAt": "2026-10-27T17:47:03.650Z"
+      "lockedAt": "2026-11-04T07:49:23.590Z"
     },
     "src\\shared\\backupIpcContracts.ts": {
       "sha256": "8fef7bb34a18bf112be0bf4d3b14e37dcd9bc1f66d2657ea3076733b3064a8e5",
@@ -334,9 +334,14 @@
       "lockedAt": "2026-10-27T17:47:03.650Z"
     },
     "src\\renderer\\features\\landing\\LandingDashboardView.tsx": {
-      "sha256": "d596fcd54f946a1fdecfd8137fa964852305ea3054185dea03a7c05956791f32",
+      "sha256": "7208f30311bf141dae828723b95328b442c595208f122f8aa0623632757bb3bc",
       "phase": "phase-9",
-      "lockedAt": "2026-10-27T17:47:03.650Z"
+      "lockedAt": "2026-11-04T07:49:23.591Z"
+    },
+    "src\\renderer\\components\\common\\GlobalErrorBoundary.tsx": {
+      "sha256": "83fc9fdcd289f492ac09c0ea3c8a344775dfe0ab1f59d20e6c65de97eee4fd8e",
+      "phase": "phase-1",
+      "lockedAt": "2026-11-04T07:49:23.592Z"
     }
   }
 }
