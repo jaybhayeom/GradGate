@@ -20,23 +20,23 @@ export interface DuoButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEle
 
 const variantStyles: Record<DuoButtonVariant, string> = {
   primary:
-    'bg-[var(--palette-accent,#B6FF2E)] border-[var(--palette-accent-lip,#8ACC1D)] text-[var(--palette-text-on-accent,#0A0A0A)] font-bold hover:brightness-105 active:border-b-0 shadow-sm',
+    'bg-[#58CC02] border-[#46A302] text-slate-950 font-black hover:bg-[#61E002] active:border-b-0 active:translate-y-1 shadow-md',
   secondary:
-    'bg-[#3D7EFF] border-[#2B66DB] text-white font-bold hover:brightness-105 active:border-b-0 shadow-sm',
+    'bg-[#1CB0F6] border-[#1899D6] text-white font-black hover:bg-[#2BD0FF] active:border-b-0 active:translate-y-1 shadow-md',
   danger:
-    'bg-[#FF4B4B] border-[#EA2B2B] text-white font-bold hover:brightness-105 active:border-b-0 shadow-sm',
+    'bg-[#FF4B4B] border-[#EA2B2B] text-white font-black hover:bg-[#FF6666] active:border-b-0 active:translate-y-1 shadow-md',
   gold:
-    'bg-[#FFC328] border-[#CC9816] text-[#0A0A0A] font-bold hover:brightness-105 active:border-b-0 shadow-sm',
+    'bg-[#FFC800] border-[#E5A500] text-slate-950 font-black hover:bg-[#FFD22E] active:border-b-0 active:translate-y-1 shadow-md',
   locked:
-    'bg-[#282C34] border-[#3E4451] text-[#94A3B8] cursor-not-allowed active:border-b-2 active:translate-y-0 opacity-60',
+    'bg-[#2B3D45] border-[#202F36] text-[#8B9BA2] cursor-not-allowed active:border-b-4 active:translate-y-0 opacity-70 shadow-none',
   ghost:
-    'bg-transparent border-[#3E4451] border-b hover:bg-[var(--palette-surface,#282C34)] active:border-b text-slate-300 active:translate-y-0 shadow-none'
+    'bg-transparent border-[#2B3D45] border-b hover:bg-[#1B272D] active:border-b text-slate-300 active:translate-y-0 shadow-none'
 };
 
 const sizeStyles: Record<DuoButtonSize, string> = {
-  sm: 'px-3 py-1.5 text-xs rounded-xl font-bold border-b-[2px]',
-  md: 'px-4 py-2 text-xs rounded-xl font-bold tracking-wide border-b-[3px]',
-  lg: 'px-6 py-2.5 text-sm rounded-xl font-extrabold tracking-wide border-b-[3px]'
+  sm: 'px-3 py-1.5 text-xs rounded-2xl font-black border-b-[3px] tracking-wide',
+  md: 'px-4 py-2 text-xs rounded-2xl font-black tracking-wide border-b-[4px]',
+  lg: 'px-6 py-2.5 text-sm rounded-2xl font-black tracking-wider border-b-[4px]'
 };
 
 export const DuoButton: React.FC<DuoButtonProps> = ({

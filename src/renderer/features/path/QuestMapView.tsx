@@ -66,34 +66,34 @@ export const QuestMapView: React.FC<QuestMapViewProps> = ({
 
         return (
           <div key={unit.id} className="w-full flex flex-col items-center mb-12">
-            {/* Unit Sticky Header Banner */}
-            <div className="w-full rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-700 p-6 shadow-2xl border border-emerald-400/40 text-white mb-6">
+            {/* Unit Sticky Header Banner (Duolingo 3D Block Style) */}
+            <div className="w-full rounded-3xl bg-[#58CC02] border-b-6 border-[#46A302] p-6 shadow-xl text-slate-950 mb-8">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-black/25 border border-white/20">
+                    <span className="text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-black/20 text-white">
                       Unit {unitIdx + 1}
                     </span>
-                    <span className="text-xs text-emerald-100 font-semibold">{unitNodes.length} Lessons</span>
+                    <span className="text-xs text-emerald-950 font-black">{unitNodes.length} Lessons</span>
                   </div>
-                  <h3 className="text-xl font-black tracking-tight">{unit.title}</h3>
-                  <p className="text-xs text-emerald-100/90 line-clamp-2 leading-relaxed">{unit.description}</p>
+                  <h3 className="text-xl font-black tracking-tight text-white">{unit.title}</h3>
+                  <p className="text-xs text-emerald-950 font-bold line-clamp-2 leading-relaxed">{unit.description}</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-2">
                   <button
                     type="button"
                     onClick={() => onOpenGuidebook?.(unit)}
-                    className="px-3.5 py-2 rounded-xl bg-white/20 hover:bg-white/30 active:bg-white/10 text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/20 shadow-sm"
+                    className="px-4 py-2.5 rounded-2xl bg-[#46A302] hover:bg-[#3d8f02] border-b-4 border-[#337502] text-white text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 shadow-md active:translate-y-1 active:border-b-0"
                   >
                     <BookOpen size={16} weight="bold" />
-                    <span>Guidebook &amp; Studio</span>
+                    <span>Guidebook</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => onOpenLectures?.(unit)}
-                    className="px-3.5 py-2 rounded-xl bg-black/30 hover:bg-black/40 active:bg-black/20 text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/10 shadow-sm"
+                    className="px-3.5 py-2.5 rounded-2xl bg-black/20 hover:bg-black/30 border-b-4 border-black/30 text-white text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 shadow-md active:translate-y-1 active:border-b-0"
                   >
                     <VideoCamera size={16} weight="bold" />
                     <span>Lectures</span>
@@ -148,15 +148,17 @@ export const QuestMapView: React.FC<QuestMapViewProps> = ({
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
-                    {/* Bouncing "START" Banner on Current Active Node */}
+                    {/* Bouncing "START" Speech Bubble on Current Active Node */}
                     {isCurrent && (
                       <motion.div
                         animate={{ y: [0, -6, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
-                        className="absolute -top-10 px-3 py-1 rounded-xl bg-white text-slate-950 text-xs font-black uppercase tracking-wider shadow-lg flex items-center gap-1 z-20 border-2 border-[#58CC02]"
+                        transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                        className="speech-bubble absolute -top-11 px-3.5 py-1 rounded-2xl bg-white text-slate-950 text-xs font-black uppercase tracking-wider shadow-xl flex items-center gap-1.5 z-20 border-2 border-slate-200"
                       >
                         <Sparkle size={14} weight="fill" className="text-amber-500" />
                         <span>START</span>
+                        <span className="text-[#58CC02] font-black">+15 XP</span>
+                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-white"></div>
                       </motion.div>
                     )}
 
@@ -173,15 +175,15 @@ export const QuestMapView: React.FC<QuestMapViewProps> = ({
                       className={`
                         relative flex items-center justify-center rounded-full transition-all duration-75
                         focus:outline-none select-none z-10
-                        ${isBoss ? 'w-20 h-20 text-2xl' : 'w-16 h-16 text-xl'}
+                        ${isBoss ? 'w-20 h-20 text-2xl' : 'w-[72px] h-[72px] text-xl'}
                         ${
                           isCompleted
-                            ? 'bg-[#FFC800] border-b-4 border-[#E5A500] text-slate-950 active:border-b-0 active:translate-y-[4px] shadow-lg shadow-amber-500/20'
+                            ? 'bg-[#FFC800] border-b-6 border-[#E5A500] text-slate-950 active:border-b-0 active:translate-y-[6px] shadow-lg shadow-amber-500/20'
                             : isCurrent
-                            ? 'bg-[#58CC02] border-b-4 border-[#46A302] text-white active:border-b-0 active:translate-y-[4px] shadow-lg shadow-emerald-500/30 ring-4 ring-emerald-500/30'
+                            ? 'bg-[#58CC02] border-b-6 border-[#46A302] text-white active:border-b-0 active:translate-y-[6px] shadow-xl shadow-emerald-500/30 ring-4 ring-emerald-500/30'
                             : isLocked
-                            ? 'bg-slate-800 border-b-4 border-slate-900 text-slate-500 cursor-not-allowed opacity-75'
-                            : 'bg-[#1CB0F6] border-b-4 border-[#1899D6] text-white active:border-b-0 active:translate-y-[4px]'
+                            ? 'bg-[#2B3D45] border-b-6 border-[#202F36] text-slate-400 cursor-not-allowed opacity-80'
+                            : 'bg-[#1CB0F6] border-b-6 border-[#1899D6] text-white active:border-b-0 active:translate-y-[6px]'
                         }
                       `}
                     >

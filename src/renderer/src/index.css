@@ -2,37 +2,135 @@
 
 @layer base {
   :root {
-    /* 60-30-10 Pro Color Palette Tokens (Verified P60: Deep Graphite + Lime Compute) */
-    --palette-bg: #1F2329;
-    --palette-surface: #282C34;
-    --palette-surface-elevated: #323842;
-    --palette-border: #3E4451;
-    --palette-border-subtle: #2D333F;
-    --palette-accent: #B6FF2E;
-    --palette-accent-hover: #A3E826;
-    --palette-accent-lip: #8ACC1D;
-    --palette-text-on-bg: #FFFFFF;
-    --palette-text-on-surface: #E6EDF3;
-    --palette-text-muted: #94A3B8;
+    /* ========================================================================= */
+    /* AUTHENTIC DUOLINGO DESKTOP NIGHT DESIGN SYSTEM TOKENS                     */
+    /* ========================================================================= */
+    --duo-bg: #131F24;
+    --duo-surface: #1B272D;
+    --duo-surface-elevated: #202F36;
+    --duo-border: #2B3D45;
+    --duo-border-subtle: #202F36;
+
+    /* Duolingo Vibrant Color Palette */
+    --duo-green: #58CC02;
+    --duo-green-lip: #46A302;
+    --duo-blue: #1CB0F6;
+    --duo-blue-lip: #1899D6;
+    --duo-gold: #FFC800;
+    --duo-gold-lip: #E5A500;
+    --duo-orange: #FF9600;
+    --duo-orange-lip: #E58500;
+    --duo-red: #FF4B4B;
+    --duo-red-lip: #EA2B2B;
+    --duo-purple: #CE82FF;
+    --duo-purple-lip: #A55FE5;
+
+    /* Typography & Contrast */
+    --duo-text-primary: #FFFFFF;
+    --duo-text-secondary: #8B9BA2;
+    --duo-text-muted: #5E7179;
+
+    /* Standard Palette Tokens mapped to Duolingo Night */
+    --palette-bg: var(--duo-bg);
+    --palette-surface: var(--duo-surface);
+    --palette-surface-elevated: var(--duo-surface-elevated);
+    --palette-border: var(--duo-border);
+    --palette-border-subtle: var(--duo-border-subtle);
+    --palette-accent: var(--duo-green);
+    --palette-accent-hover: #61E002;
+    --palette-accent-lip: var(--duo-green-lip);
+    --palette-text-on-bg: var(--duo-text-primary);
+    --palette-text-on-surface: #E5EDF0;
+    --palette-text-muted: var(--duo-text-secondary);
     --palette-text-on-accent: #0A0A0A;
 
     /* Semantic bindings */
-    --color-primary: var(--palette-accent);
-    --color-primary-dark: var(--palette-accent-hover);
-    --color-secondary: #3D7EFF;
-    --color-gold: #FFC328;
-    --color-danger: #FF4B4B;
-    --color-bg-app: var(--palette-bg);
-    --color-bg-surface: var(--palette-surface);
-    --color-bg-elevated: var(--palette-surface-elevated);
+    --color-primary: var(--duo-green);
+    --color-primary-lip: var(--duo-green-lip);
+    --color-secondary: var(--duo-blue);
+    --color-gold: var(--duo-gold);
+    --color-danger: var(--duo-red);
+    --color-bg-app: var(--duo-bg);
+    --color-bg-surface: var(--duo-surface);
+    --color-bg-elevated: var(--duo-surface-elevated);
   }
+}
+
+/* Duolingo 3D Tactile Physical Button Styles */
+.duo-btn-3d {
+  transition: all 0.08s ease-in-out;
+}
+.duo-btn-3d:active {
+  transform: translateY(4px);
+  border-bottom-width: 0px !important;
+}
+
+.duo-btn-green {
+  background-color: #58CC02;
+  border-bottom: 4px solid #46A302;
+  color: #0A0A0A;
+}
+.duo-btn-green:hover {
+  background-color: #61E002;
+}
+
+.duo-btn-blue {
+  background-color: #1CB0F6;
+  border-bottom: 4px solid #1899D6;
+  color: #FFFFFF;
+}
+.duo-btn-blue:hover {
+  background-color: #2BD0FF;
+}
+
+.duo-btn-gold {
+  background-color: #FFC800;
+  border-bottom: 4px solid #E5A500;
+  color: #0A0A0A;
+}
+.duo-btn-gold:hover {
+  background-color: #FFD22E;
+}
+
+.duo-btn-purple {
+  background-color: #CE82FF;
+  border-bottom: 4px solid #A55FE5;
+  color: #FFFFFF;
+}
+.duo-btn-purple:hover {
+  background-color: #D99BFF;
+}
+
+.duo-btn-red {
+  background-color: #FF4B4B;
+  border-bottom: 4px solid #EA2B2B;
+  color: #FFFFFF;
+}
+.duo-btn-red:hover {
+  background-color: #FF6666;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #131F24;
+}
+::-webkit-scrollbar-thumb {
+  background: #2B3D45;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B535F;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   user-select: none;
   overflow-x: hidden;
-  background-color: var(--palette-bg);
-  color: var(--palette-text-on-bg);
+  background-color: #131F24;
+  color: #FFFFFF;
 }

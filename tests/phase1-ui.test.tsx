@@ -156,12 +156,12 @@ describe('Phase 1: Tactile 3D UI Primitives & Web Audio Engine', () => {
       'theme_ideas_amber'
     ]);
 
-    expect(THEMES.theme_python_emerald.colors.primary).toBe('#B6FF2E');
-    expect(THEMES.theme_python_emerald.colors.primaryLip).toBe('#8ACC1D');
+    expect(THEMES.theme_python_emerald.colors.primary).toBe('#58CC02');
+    expect(THEMES.theme_python_emerald.colors.primaryLip).toBe('#46A302');
 
     // Test applyThemeVariables
     applyThemeVariables(THEMES.theme_python_emerald);
-    expect(document.documentElement.style.getPropertyValue('--color-primary')).toBe('#B6FF2E');
-    expect(document.documentElement.style.getPropertyValue('--color-primary-lip')).toBe('#8ACC1D');
+    expect(document.documentElement.style.getPropertyValue('--color-primary')).toBe('#58CC02');
+    expect(document.documentElement.style.getPropertyValue('--color-primary-lip')).toBe('#46A302');
   });
 });
