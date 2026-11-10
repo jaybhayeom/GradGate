@@ -23,10 +23,10 @@ let syncManager: GitHubSyncManager | null = null;
 
 function createWindow(): void {
   mainWindow = new BrowserWindow({
-    width: 1366,
-    height: 768,
-    minWidth: 1024,
-    minHeight: 600,
+    width: 1920,
+    height: 1080,
+    minWidth: 1280,
+    minHeight: 720,
     center: true,
     show: true,
     autoHideMenuBar: true,

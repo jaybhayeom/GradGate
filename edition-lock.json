@@ -1,5 +1,5 @@
 {
-  "edition": 12,
+  "edition": 13,
   "lockedPhases": [
     "phase-0",
     "phase-1",
@@ -16,348 +16,348 @@
     "src\\main\\db\\curriculumSchema.sql": {
       "sha256": "a9f73c3600cdca7b1ffbe618f711d9d0c1e3e1a9896026d3d7efac1b1960e3e2",
       "phase": "phase-0",
-      "lockedAt": "2026-11-10T13:53:22.721Z"
+      "lockedAt": "2026-11-10T14:10:21.376Z"
     },
     "src\\main\\db\\databaseManager.ts": {
       "sha256": "a3cc7024b33b1b7d653582971f4cfdc4cc27b08ed2e8807e1950025f180b9738",
       "phase": "phase-0",
-      "lockedAt": "2026-11-10T13:53:22.723Z"
+      "lockedAt": "2026-11-10T14:10:21.378Z"
     },
     "src\\main\\db\\userProfileSchema.sql": {
       "sha256": "88811013efa189c6edde74226cf2adde4553c41191860f60464075dff871e473",
       "phase": "phase-0",
-      "lockedAt": "2026-11-10T13:53:22.723Z"
+      "lockedAt": "2026-11-10T14:10:21.378Z"
     },
     "src\\main\\sync\\githubSyncManager.ts": {
       "sha256": "3ca808b28a6b4ac040c206081ec9b6255388181b048da5cfd169cf5bb8abf0a2",
       "phase": "phase-0",
-      "lockedAt": "2026-11-10T13:53:22.724Z"
+      "lockedAt": "2026-11-10T14:10:21.379Z"
     },
     "src\\shared\\ipcContracts.ts": {
       "sha256": "596cae58825e58aa27f3f810671c8336a7aba14807d538dc92aa8dcf27e4c414",
       "phase": "phase-0",
-      "lockedAt": "2026-11-10T13:53:22.724Z"
+      "lockedAt": "2026-11-10T14:10:21.379Z"
     },
     "src\\shared\\types.ts": {
       "sha256": "eb03fdac2475e184027f9a795a08dac50b67680fca010045f12a943747e84ed6",
       "phase": "phase-0",
-      "lockedAt": "2026-11-10T13:53:22.725Z"
+      "lockedAt": "2026-11-10T14:10:21.380Z"
     },
     "src\\renderer\\components\\ui\\AssetSlot.tsx": {
       "sha256": "894f76b8650aa5f0d00378e47b1e375a45202d60764baba15f9e5d7c157b0771",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.725Z"
+      "lockedAt": "2026-11-10T14:10:21.380Z"
     },
     "src\\renderer\\components\\ui\\DuoButton.tsx": {
       "sha256": "72af9545bb850dd7845fe9af07637a2b5ed6b3d69fde8bf0018903ba369436f8",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.725Z",
+      "lockedAt": "2026-11-10T14:10:21.380Z",
       "updatedAt": "2026-11-10T13:05:50.145Z"
     },
     "src\\renderer\\components\\ui\\FeedbackDrawer.tsx": {
       "sha256": "2135bb3559f8aa12184080239cd79a91d83b22a5c7bb13081e2393a12f04999f",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.726Z"
+      "lockedAt": "2026-11-10T14:10:21.381Z"
     },
     "src\\renderer\\components\\ui\\FramelessTitleBar.tsx": {
       "sha256": "de7f425d8e148a7a8cfc2631ab231e0c274042c32c63d3595b576b1b6b658746",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.727Z"
+      "lockedAt": "2026-11-10T14:10:21.381Z"
     },
     "src\\renderer\\components\\ui\\SnakeProgressBar.tsx": {
       "sha256": "56b83cbf542f8f790537a82f065e31d699bf480cffd915cce7af2feef40ad252",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.728Z"
+      "lockedAt": "2026-11-10T14:10:21.382Z"
     },
     "src\\renderer\\components\\ui\\TopStatHud.tsx": {
       "sha256": "3920c020dcaf36009e4635e331edd01222971e4f7091611aed8cddf4c01fd021",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.728Z",
+      "lockedAt": "2026-11-10T14:10:21.382Z",
       "updatedAt": "2026-11-10T13:05:50.147Z"
     },
     "src\\renderer\\audio\\soundEngine.ts": {
       "sha256": "00bbdd0e2323ed9eba4edb591c86b42e0ffff907092d6779f1d12f66fc1fa8fc",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.728Z"
+      "lockedAt": "2026-11-10T14:10:21.382Z"
     },
     "src\\renderer\\styles\\themes.ts": {
       "sha256": "f8ce392e8fd5bfacb473e0b0f79e615bede2e2ae34a1138cedb5356565eeb6f8",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.728Z",
+      "lockedAt": "2026-11-10T14:10:21.383Z",
       "updatedAt": "2026-11-10T13:05:50.148Z"
     },
     "src\\main\\services\\adaptiveTargetEngine.ts": {
       "sha256": "1edb5f49cb158796b05585025089c798b59394a58863cd7b0e0da95e78e9f87f",
       "phase": "phase-2",
-      "lockedAt": "2026-11-10T13:53:22.728Z",
+      "lockedAt": "2026-11-10T14:10:21.383Z",
       "updatedAt": "2026-11-10T13:05:50.148Z"
     },
     "src\\renderer\\features\\path\\QuestMapView.tsx": {
-      "sha256": "6a098b5433a30dc033278be1fa9acf721fc681c4e31b8f0fad3fadc1b3886285",
+      "sha256": "6db8a6ce2616489dc4d2aac138d92f3c8f50a1549597445109762a86f3843b76",
       "phase": "phase-2",
-      "lockedAt": "2026-11-10T13:53:22.728Z"
+      "lockedAt": "2026-11-10T14:10:21.383Z"
     },
     "src\\renderer\\features\\gamification\\GemShopView.tsx": {
       "sha256": "9f16c545112c7f16260a6f9d4591b399578c182980c87dde10c62719cbc8c2f1",
       "phase": "phase-2",
-      "lockedAt": "2026-11-10T13:53:22.729Z",
+      "lockedAt": "2026-11-10T14:10:21.383Z",
       "updatedAt": "2026-11-10T13:05:50.148Z"
     },
     "src\\renderer\\features\\gamification\\LeagueLeaderboardView.tsx": {
       "sha256": "961ee9665c5d9eab96fe12833129ca255ea08332d13ae1903fec218a1d65cde6",
       "phase": "phase-2",
-      "lockedAt": "2026-11-10T13:53:22.729Z"
+      "lockedAt": "2026-11-10T14:10:21.383Z"
     },
     "src\\renderer\\features\\gamification\\MistakeRepairModal.tsx": {
       "sha256": "8eb189d1f054f90e0f7c25e25c9e72ea31ebb8707060f74e6cb3fa054d23014a",
       "phase": "phase-2",
-      "lockedAt": "2026-11-10T13:53:22.729Z"
+      "lockedAt": "2026-11-10T14:10:21.384Z"
     },
     "src\\renderer\\features\\lesson\\ExerciseErrorBoundary.tsx": {
       "sha256": "2213ca01e6edcec64c8dda9d67179d941b22be4e5fa3d9916d126bf1f306ae57",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.730Z"
+      "lockedAt": "2026-11-10T14:10:21.384Z"
     },
     "src\\renderer\\features\\lesson\\exercises\\AlgoTracerExercise.tsx": {
       "sha256": "a3cf4732620a321a5dca3f6c51771a133ea8ec08b8d99168f7a0bff73f74e1d5",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.730Z"
+      "lockedAt": "2026-11-10T14:10:21.385Z"
     },
     "src\\renderer\\features\\lesson\\exercises\\MatchMadnessExercise.tsx": {
       "sha256": "b17b91c8edbef4cd51462593d7cb6752736cf262fcebc0228ab5a2fb16798614",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.731Z"
+      "lockedAt": "2026-11-10T14:10:21.385Z"
     },
     "src\\renderer\\features\\lesson\\exercises\\McqExercise.tsx": {
       "sha256": "1a431bdf3eda8acec12e24d0bf31e7af8be5b79f8bb2496aac5448e14769bcc2",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.731Z"
+      "lockedAt": "2026-11-10T14:10:21.386Z"
     },
     "src\\renderer\\features\\lesson\\exercises\\MsqExercise.tsx": {
       "sha256": "e8d63e304b3bafb059a2cf7a10ad47115373f6ebfd729df0a3fe64cfe3873648",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.732Z"
+      "lockedAt": "2026-11-10T14:10:21.386Z"
     },
     "src\\renderer\\features\\lesson\\exercises\\NatKeypadExercise.tsx": {
       "sha256": "7bef673f7e9caafdce87df2e0e9d35e8fda2091700f9dcfdff297420f6f88a95",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.732Z"
+      "lockedAt": "2026-11-10T14:10:21.387Z"
     },
     "src\\renderer\\features\\lesson\\exercises\\TokenBuilderExercise.tsx": {
       "sha256": "a32f5ce368f62f8764e43346dc372db18355f51880c717b333511aa3db4a9452",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.732Z"
+      "lockedAt": "2026-11-10T14:10:21.387Z"
     },
     "src\\renderer\\features\\lesson\\LessonRunner.tsx": {
       "sha256": "03b0052a25c219ce587698d22316d185a3bc826b8a2ff237ade47ab6358cb43c",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.734Z"
+      "lockedAt": "2026-11-10T14:10:21.388Z"
     },
     "src\\renderer\\workers\\codeSandbox.worker.ts": {
       "sha256": "ef2a9daba24c5f96ce1e2971fef72afb6ddcdaa0a15e5e23780f2697764aae4a",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.735Z"
+      "lockedAt": "2026-11-10T14:10:21.389Z"
     },
     "src\\renderer\\workers\\codeSandboxClient.ts": {
       "sha256": "37b223e72b40ddaabc004cbb083418b2911918ee10e51e56710c3948d126b8a2",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.735Z"
+      "lockedAt": "2026-11-10T14:10:21.389Z"
     },
     "src\\renderer\\components\\tools\\ScratchpadOverlay.tsx": {
       "sha256": "e4bb364ff2badb6d0c4da5b37cf2d1f1d2e8e73989b9c8cfc45b2eb852ec9614",
       "phase": "phase-3",
-      "lockedAt": "2026-11-10T13:53:22.736Z"
+      "lockedAt": "2026-11-10T14:10:21.390Z"
     },
     "src\\renderer\\features\\studio\\ConceptMindMap.tsx": {
       "sha256": "e32d60ade89d437c915a22b7fe006f15f7ca6f0016baa60fd036e1b1101a471f",
       "phase": "phase-4",
-      "lockedAt": "2026-11-10T13:53:22.736Z",
+      "lockedAt": "2026-11-10T14:10:21.390Z",
       "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\DeepDivePlayer.tsx": {
       "sha256": "a7462f0538c69330f3407cf6c3f8b5d40cd2dd04b7b02ed0c2a471e6fe729e9d",
       "phase": "phase-4",
-      "lockedAt": "2026-11-10T13:53:22.736Z",
+      "lockedAt": "2026-11-10T14:10:21.390Z",
       "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\MafsVisualizer.tsx": {
       "sha256": "f0a2e01628a8110befdccce4583718a828ca38106270d8cb88eda9c61a8caa51",
       "phase": "phase-4",
-      "lockedAt": "2026-11-10T13:53:22.736Z",
+      "lockedAt": "2026-11-10T14:10:21.391Z",
       "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\VisualConceptStudio.tsx": {
       "sha256": "a8382f78a793bac922fff0dbb79927e57b7a1c0d7c62051cbbf8da4f713117e9",
       "phase": "phase-4",
-      "lockedAt": "2026-11-10T13:53:22.736Z",
+      "lockedAt": "2026-11-10T14:10:21.391Z",
       "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\VisxMlPlot.tsx": {
       "sha256": "eccae26fa6dc82f3572e903ea9cdd7e8e6a9cd2cacdc52a00f99cc1e090ba343",
       "phase": "phase-4",
-      "lockedAt": "2026-11-10T13:53:22.737Z"
+      "lockedAt": "2026-11-10T14:10:21.391Z"
     },
     "src\\renderer\\features\\lectures\\YouTubeLectureHub.tsx": {
       "sha256": "aca3f8cf311d0d90cdaa9faa333e7317a78ad00ed59466d813372be253039fc9",
       "phase": "phase-4",
-      "lockedAt": "2026-11-10T13:53:22.737Z"
+      "lockedAt": "2026-11-10T14:10:21.392Z"
     },
     "src\\renderer\\features\\arena\\TcsIonArenaView.tsx": {
       "sha256": "de37bc3d069f625d96c0aca8b1da11d6036fbf7098ab70cc71791e44e4b1bab2",
       "phase": "phase-5",
-      "lockedAt": "2026-11-10T13:53:22.738Z"
+      "lockedAt": "2026-11-10T14:10:21.392Z"
     },
     "src\\main\\services\\examSessionGuard.ts": {
       "sha256": "c1ff40f3d19175a540608d6faf17f05bc7e163a6c7b1eb5c978a72edbfd20a41",
       "phase": "phase-5",
-      "lockedAt": "2026-11-10T13:53:22.738Z"
+      "lockedAt": "2026-11-10T14:10:21.393Z"
     },
     "src\\renderer\\components\\tools\\GateScientificCalculator.tsx": {
       "sha256": "a3821c653209c7de6c1d766c64e60e049a4e838f51697043d315895e18ea91ca",
       "phase": "phase-5",
-      "lockedAt": "2026-11-10T13:53:22.739Z"
+      "lockedAt": "2026-11-10T14:10:21.393Z"
     },
     "src\\main\\services\\rankPredictor.ts": {
       "sha256": "65e37541badcd848688a3219d4df1c215539c58b44f1ce9693acfc0b6e737f59",
       "phase": "phase-6",
-      "lockedAt": "2026-11-10T13:53:22.739Z"
+      "lockedAt": "2026-11-10T14:10:21.394Z"
     },
     "src\\renderer\\features\\analytics\\AnalyticsDashboard.tsx": {
       "sha256": "9b251816605ed0efe97ff73dca95e1a3c729095eca0936b9ca27fa4be114fa70",
       "phase": "phase-6",
-      "lockedAt": "2026-11-10T13:53:22.739Z",
+      "lockedAt": "2026-11-10T14:10:21.394Z",
       "updatedAt": "2026-11-10T13:05:50.158Z"
     },
     "src\\renderer\\features\\srs\\FlashcardVaultView.tsx": {
       "sha256": "691242d6c73b9f5cdf9d013d489347a2acbaf895287db80e0e3539eab61af661",
       "phase": "phase-6",
-      "lockedAt": "2026-11-10T13:53:22.740Z"
+      "lockedAt": "2026-11-10T14:10:21.394Z"
     },
     "src\\main\\seeds\\seed_01_prob_stats.ts": {
       "sha256": "b1f9a1b73b88935088b3c7e1851c6aeec45f2a91b30aec929609768ae83a83d0",
       "phase": "phase-7",
-      "lockedAt": "2026-11-10T13:53:22.741Z"
+      "lockedAt": "2026-11-10T14:10:21.395Z"
     },
     "src\\main\\seeds\\seed_02_linear_algebra.ts": {
       "sha256": "bfb7d61b215c0eff2f2bcfa1c30d4e5fb1cd55fbdab83f3ca71ddc73749a3380",
       "phase": "phase-7",
-      "lockedAt": "2026-11-10T13:53:22.741Z"
+      "lockedAt": "2026-11-10T14:10:21.396Z"
     },
     "src\\main\\seeds\\seed_03_calculus_opt.ts": {
       "sha256": "bdf21510b9b4d3722cb2b82e2aca8d14c1c3f8f21dad31f09783f7a6683be05f",
       "phase": "phase-7",
-      "lockedAt": "2026-11-10T13:53:22.742Z"
+      "lockedAt": "2026-11-10T14:10:21.396Z"
     },
     "src\\main\\seeds\\seed_08_general_aptitude.ts": {
       "sha256": "af9e38c5c1ec726f92f35dbdad9ad24cb40441d42dd684d13a3d23bf7da884b7",
       "phase": "phase-7",
-      "lockedAt": "2026-11-10T13:53:22.742Z"
+      "lockedAt": "2026-11-10T14:10:21.397Z"
     },
     "src\\main\\seeds\\youtube_lectures.json": {
       "sha256": "9242a25cbd0381d98ddc99072abba599fe14c96c0fc16ccaaf6103ebcdcae39c",
       "phase": "phase-7",
-      "lockedAt": "2026-11-10T13:53:22.743Z"
+      "lockedAt": "2026-11-10T14:10:21.397Z"
     },
     "src\\main\\seeds\\index.ts": {
       "sha256": "7afaf4369917a7a2b5b0eb79e04dfd832b08b5f6ce6ff5664f0f79f8ad185e8f",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.743Z"
+      "lockedAt": "2026-11-10T14:10:21.398Z"
     },
     "src\\main\\seeds\\seed_04_dsa_python.ts": {
       "sha256": "1d466c4e806c4aed85675dbb86576b145bb75e17f3327af43d5a9dfd46a43515",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.744Z"
+      "lockedAt": "2026-11-10T14:10:21.398Z"
     },
     "src\\main\\seeds\\seed_05_dbms_dw.ts": {
       "sha256": "2f7ed542d6b3ca3877078264915ee7d1be8be09a5b65130b44073a31c109c38c",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.744Z"
+      "lockedAt": "2026-11-10T14:10:21.399Z"
     },
     "src\\main\\seeds\\seed_06_machine_learning.ts": {
       "sha256": "1bef8a318ec2e6702f57e5cd9616f81cb7ab042ec763db829d2739b103c7266f",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.744Z"
+      "lockedAt": "2026-11-10T14:10:21.399Z"
     },
     "src\\main\\seeds\\seed_07_artificial_intelligence.ts": {
       "sha256": "e46b033e4d58a27ccc507a46e5fe7244305a54accaec7a1fa410f908fad55a23",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.745Z"
+      "lockedAt": "2026-11-10T14:10:21.400Z"
     },
     "src\\main\\seeds\\seed_09_full_mocks.ts": {
       "sha256": "51b974403b27e8eff1a6a32313457f0c73b14cd1f78d5a284eddbece3a87f3e5",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.745Z"
+      "lockedAt": "2026-11-10T14:10:21.400Z"
     },
     "src\\main\\seeds\\youtube_lectures_core_cs.json": {
       "sha256": "89653d09f9bb96561cea1774d868425f3d9c00cdc81b90076186c63c9f83cabb",
       "phase": "phase-8",
-      "lockedAt": "2026-11-10T13:53:22.746Z"
+      "lockedAt": "2026-11-10T14:10:21.401Z"
     },
     "src\\main\\index.ts": {
-      "sha256": "7d3f9cc63a61cc60ebffc0fd02d7b9013bdab0fa50a94515de2ad6d4cdb80c43",
+      "sha256": "5de2cfbf563d8ab70f86f760a155f7429bcccea61e3bb5efbd6feb96b677c43b",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.746Z",
+      "lockedAt": "2026-11-10T14:10:21.401Z",
       "updatedAt": "2026-11-10T13:05:50.165Z"
     },
     "src\\main\\services\\profileBackupService.ts": {
       "sha256": "ad4849cf9de9cd0da330aa322b38657fc699388c0fcbff942d6833bb28d4a0e8",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.746Z"
+      "lockedAt": "2026-11-10T14:10:21.401Z"
     },
     "src\\preload\\index.d.ts": {
       "sha256": "635542698c75e0ef3384da677fe5f471724f8a514a2c3fcbba068d96283d9997",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.747Z"
+      "lockedAt": "2026-11-10T14:10:21.402Z"
     },
     "src\\preload\\index.ts": {
       "sha256": "afa994ed29cb68513c0048aceff884bf4a2702cda055a27485714c2e193fcd25",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.747Z"
+      "lockedAt": "2026-11-10T14:10:21.402Z"
     },
     "src\\renderer\\features\\design-system\\DesignSystemPreview.tsx": {
       "sha256": "dc7256ae8c9a225ac60cf6e25624a130a23aec82d73ba610e80aac742d2c5b17",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.748Z",
+      "lockedAt": "2026-11-10T14:10:21.402Z",
       "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\features\\settings\\SettingsView.tsx": {
       "sha256": "68b06d194f2c820ee013b2e83c2671e381fb652bc4671d6bdf76b1414db9c053",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.748Z",
+      "lockedAt": "2026-11-10T14:10:21.403Z",
       "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\src\\App.tsx": {
-      "sha256": "3478dc933381c14ea89601a2adc6f2eb6959bff2841a4751296cdc43d7d48cb3",
+      "sha256": "84000c0c3300edb751e2f977d9e8f1a1297581179445c6ac65baa76c539da034",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.749Z",
+      "lockedAt": "2026-11-10T14:10:21.403Z",
       "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\src\\index.css": {
       "sha256": "2e89d13e6ebbaeaa28ff9c8c0aaec0e5854f8130417c53516ada46e6c2e88b60",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.749Z",
+      "lockedAt": "2026-11-10T14:10:21.403Z",
       "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\src\\main.tsx": {
       "sha256": "065ad09ee69c109d8b4024c000aa8936a9aa9e3fcaee6375c43245648162034f",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.750Z"
+      "lockedAt": "2026-11-10T14:10:21.403Z"
     },
     "src\\shared\\backupIpcContracts.ts": {
       "sha256": "8fef7bb34a18bf112be0bf4d3b14e37dcd9bc1f66d2657ea3076733b3064a8e5",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.750Z"
+      "lockedAt": "2026-11-10T14:10:21.404Z"
     },
     "src\\renderer\\features\\landing\\LandingDashboardView.tsx": {
-      "sha256": "03251684463ca1ce51954a915669a4696a0c4bff2a831d39a39b82e7287322c0",
+      "sha256": "9c217d4ac77da9ebff0c26dafed052e18d3d8fc19fa28e4f2906143c6406cc05",
       "phase": "phase-9",
-      "lockedAt": "2026-11-10T13:53:22.750Z",
+      "lockedAt": "2026-11-10T14:10:21.404Z",
       "updatedAt": "2026-11-10T13:05:50.168Z"
     },
     "src\\renderer\\components\\common\\GlobalErrorBoundary.tsx": {
       "sha256": "83fc9fdcd289f492ac09c0ea3c8a344775dfe0ab1f59d20e6c65de97eee4fd8e",
       "phase": "phase-1",
-      "lockedAt": "2026-11-10T13:53:22.751Z"
+      "lockedAt": "2026-11-10T14:10:21.405Z"
     }
   }
 }

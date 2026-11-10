@@ -77,7 +77,7 @@ export function LandingDashboardView({
   }, [userStats?.xp]);
 
   return (
-    <div className="max-w-6xl w-full mx-auto px-5 py-6 space-y-6 select-none">
+    <div className="w-full max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-6 space-y-8 select-none">
       {/* 1. HERO BANNER */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/30 border border-slate-800 p-6 md:p-7 shadow-xl">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">

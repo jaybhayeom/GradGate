@@ -55,6 +55,7 @@ import {
   VolumeX,
   Sparkles,
   ChevronDown,
+  Clock,
   Cloud,
   CloudOff
 } from 'lucide-react';
@@ -486,16 +487,28 @@ export default function App(): React.JSX.Element {
   const selectedSection = sections.find((s) => s.id === selectedSectionId) || sections[0];
   const isPathView = activeTab === 'path' || activeTab === 'home';
 
+  const examDaysRemaining = Math.max(
+    0,
+    Math.ceil(
+      (new Date(userStats?.target_exam_date || '2027-02-07').getTime() - new Date().getTime()) /
+        (1000 * 60 * 60 * 24)
+    )
+  );
+  const examReadinessPct = Math.min(
+    100,
+    Math.round(((userStats?.xp || 0) / 5000) * 100)
+  );
+
   return (
     <div className="min-h-screen bg-[#131F24] text-white flex flex-col font-sans select-none">
       {/* 1. Custom Frameless Title Bar */}
       <FramelessTitleBar title="GradGate — GATE DA Desktop Edition" />
 
-      {/* 2. Authentic 3-Column Duolingo Desktop Grid */}
-      <div className="flex-1 max-w-[1360px] w-full mx-auto flex justify-between px-3 md:px-5 py-3 gap-6">
+      {/* 2. Authentic 3-Column Duolingo Desktop Grid for 1920x1080 Aspect Ratio */}
+      <div className="flex-1 w-full max-w-[1920px] mx-auto flex justify-between px-6 xl:px-8 2xl:px-10 py-4 gap-8">
 
-        {/* COLUMN 1: LEFT PERSISTENT NAVIGATION SIDEBAR (240px) */}
-        <aside className="w-[240px] shrink-0 hidden md:flex flex-col justify-between border-r border-[#2B3D45]/60 pr-4 pb-4 sticky top-3 h-[calc(100vh-50px)]">
+        {/* COLUMN 1: LEFT PERSISTENT NAVIGATION SIDEBAR */}
+        <aside className="w-[260px] 2xl:w-[280px] shrink-0 hidden md:flex flex-col justify-between border-r border-[#2B3D45]/60 pr-5 pb-4 sticky top-4 h-[calc(100vh-65px)]">
           <div className="space-y-5">
             {/* Brand Logo Header */}
             <div
@@ -694,7 +707,7 @@ export default function App(): React.JSX.Element {
         </aside>
 
         {/* COLUMN 2: CENTER / MAIN WORKSPACE */}
-        <main className={`flex-1 min-w-0 ${isPathView ? 'max-w-[620px] mx-auto' : 'w-full'} custom-scrollbar overflow-y-auto pb-16`}>
+        <main className={`flex-1 min-w-0 ${activeTab === 'path' ? 'max-w-[880px] 2xl:max-w-[960px] mx-auto' : 'w-full max-w-[1560px] mx-auto'} custom-scrollbar overflow-y-auto pb-16`}>
           {activeTab === 'home' && (
             <LandingDashboardView
               userStats={userStats}
@@ -825,7 +838,7 @@ export default function App(): React.JSX.Element {
 
         {/* COLUMN 3: RIGHT GAMIFICATION & STATS SIDEBAR (Sticky on desktop for path & home) */}
         {isPathView && (
-          <aside className="w-[330px] shrink-0 hidden xl:flex flex-col gap-4 sticky top-3 h-[calc(100vh-50px)] overflow-y-auto custom-scrollbar">
+          <aside className="w-[360px] 2xl:w-[390px] shrink-0 hidden xl:flex flex-col gap-4 sticky top-4 h-[calc(100vh-65px)] overflow-y-auto custom-scrollbar pl-1">
             {/* 1. TOP STATS HUD CARD */}
             <div className="p-3.5 rounded-2xl bg-[#1B272D] border-2 border-[#2B3D45] flex items-center justify-between text-sm font-black shadow-lg">
               {/* Streak */}
@@ -865,6 +878,34 @@ export default function App(): React.JSX.Element {
               >
                 {isMuted ? <VolumeX className="w-4 h-4 text-slate-400" /> : <Volume2 className="w-4 h-4 text-[#58CC02]" />}
               </button>
+            </div>
+
+            {/* 1.5 GATE DA 2027 EXAM COUNTDOWN & READINESS */}
+            <div className="p-4 rounded-3xl bg-[#1B272D] border-2 border-[#2B3D45] space-y-2.5 shadow-lg">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-amber-400" />
+                  <span className="text-[11px] font-black uppercase tracking-wider text-slate-300">GATE DA 2027</span>
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 text-[10px] font-black tracking-wide border border-amber-500/30">
+                  FEB 7, 2027
+                </span>
+              </div>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-white font-mono tracking-tight">
+                  {examDaysRemaining}
+                  <span className="text-xs font-bold text-slate-400 ml-1.5 uppercase font-sans">Days Left</span>
+                </span>
+                <span className="text-xs font-black text-[#58CC02]">
+                  {examReadinessPct}% Ready
+                </span>
+              </div>
+              <div className="w-full h-2 rounded-full bg-[#131F24] overflow-hidden border border-[#2B3D45]">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-[#58CC02] transition-all duration-500"
+                  style={{ width: `${examReadinessPct}%` }}
+                />
+              </div>
             </div>
 
             {/* 2. SUPER IMMERSION PASS CARD */}
