@@ -33,14 +33,14 @@ export const DesignSystemPreview: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-10 max-w-5xl mx-auto p-8 pb-32">
+    <div className="flex flex-col gap-6 max-w-5xl mx-auto p-4 md:p-6 pb-24 select-none">
       {/* Header */}
       <div>
-        <h2 className="text-3xl font-black text-white tracking-tight flex items-center gap-3">
+        <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-3">
           Tactile 3D Design System &amp; Audio Engine
         </h2>
-        <p className="text-sm text-slate-400 mt-1">
-          Duolingo-inspired tactile 3D physical primitives with Web Audio API sound synthesis and 4 theme palettes.
+        <p className="text-xs md:text-sm text-slate-400 mt-1">
+          Tactile workstation primitives with Web Audio API sound synthesis and 5 verified Pro Color Palettes adhering to the 60-30-10 distribution rule.
         </p>
       </div>
 

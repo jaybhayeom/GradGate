@@ -560,7 +560,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                   <button
                     onClick={() => onNavigateToStudio(topic.topicId)}
                     className="flex items-center space-x-1.5 px-3 py-2 bg-indigo-950/70 hover:bg-indigo-900 border border-indigo-700/50 text-indigo-200 rounded-lg text-xs font-semibold transition"
-                    title="Open NotebookLM Visual Concept Studio"
+                    title="Open Visual Concept Studio"
                   >
                     <Brain size={14} />
                     <span>Visual Studio</span>

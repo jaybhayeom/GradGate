@@ -2,11 +2,29 @@
 
 @layer base {
   :root {
-    --color-primary: #58cc02;
-    --color-primary-dark: #46a302;
-    --color-secondary: #1cb0f6;
-    --color-gold: #ffc800;
-    --color-danger: #ff4b4b;
+    /* 60-30-10 Pro Color Palette Tokens (Verified P60: Deep Graphite + Lime Compute) */
+    --palette-bg: #1F2329;
+    --palette-surface: #282C34;
+    --palette-surface-elevated: #323842;
+    --palette-border: #3E4451;
+    --palette-border-subtle: #2D333F;
+    --palette-accent: #B6FF2E;
+    --palette-accent-hover: #A3E826;
+    --palette-accent-lip: #8ACC1D;
+    --palette-text-on-bg: #FFFFFF;
+    --palette-text-on-surface: #E6EDF3;
+    --palette-text-muted: #94A3B8;
+    --palette-text-on-accent: #0A0A0A;
+
+    /* Semantic bindings */
+    --color-primary: var(--palette-accent);
+    --color-primary-dark: var(--palette-accent-hover);
+    --color-secondary: #3D7EFF;
+    --color-gold: #FFC328;
+    --color-danger: #FF4B4B;
+    --color-bg-app: var(--palette-bg);
+    --color-bg-surface: var(--palette-surface);
+    --color-bg-elevated: var(--palette-surface-elevated);
   }
 }
 
@@ -15,4 +33,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   user-select: none;
   overflow-x: hidden;
+  background-color: var(--palette-bg);
+  color: var(--palette-text-on-bg);
 }

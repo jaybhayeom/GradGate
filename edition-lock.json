@@ -49,9 +49,10 @@
       "lockedAt": "2026-10-18T15:26:09.757Z"
     },
     "src\\renderer\\components\\ui\\DuoButton.tsx": {
-      "sha256": "8425eac34bdedfb8a9a336c310d5d4777f7affbd747f5f53e9cb87842375623e",
+      "sha256": "f62176b81c63e1060f52dc0b9ce18c15bc1b6da7020ef7b03dfec77fa03c701e",
       "phase": "phase-1",
-      "lockedAt": "2026-10-18T15:26:09.758Z"
+      "lockedAt": "2026-10-18T15:26:09.758Z",
+      "updatedAt": "2026-11-10T13:05:50.145Z"
     },
     "src\\renderer\\components\\ui\\FeedbackDrawer.tsx": {
       "sha256": "2135bb3559f8aa12184080239cd79a91d83b22a5c7bb13081e2393a12f04999f",
@@ -69,9 +70,10 @@
       "lockedAt": "2026-10-18T15:26:09.758Z"
     },
     "src\\renderer\\components\\ui\\TopStatHud.tsx": {
-      "sha256": "3c1ed2faef9d724a92dc522c6d661d1135d43a7645789004fa43472174268877",
+      "sha256": "3920c020dcaf36009e4635e331edd01222971e4f7091611aed8cddf4c01fd021",
       "phase": "phase-1",
-      "lockedAt": "2026-10-18T15:26:09.758Z"
+      "lockedAt": "2026-10-18T15:26:09.758Z",
+      "updatedAt": "2026-11-10T13:05:50.147Z"
     },
     "src\\renderer\\audio\\soundEngine.ts": {
       "sha256": "00bbdd0e2323ed9eba4edb591c86b42e0ffff907092d6779f1d12f66fc1fa8fc",
@@ -79,14 +81,16 @@
       "lockedAt": "2026-10-18T15:26:09.759Z"
     },
     "src\\renderer\\styles\\themes.ts": {
-      "sha256": "ffe4575315107a142998d83c11f65fedf0f16a61c19c9f9843992dd7c0e10290",
+      "sha256": "6eeefee1b124fd1c26108907c0de8fd892d269575e66bbf95cac723d7f49a41b",
       "phase": "phase-1",
-      "lockedAt": "2026-10-18T15:26:09.759Z"
+      "lockedAt": "2026-10-18T15:26:09.759Z",
+      "updatedAt": "2026-11-10T13:05:50.148Z"
     },
     "src\\main\\services\\adaptiveTargetEngine.ts": {
-      "sha256": "11543989e1e8526e4f220fad3d904d3db5c84e7dadfb58b9803c41229f7ecaae",
+      "sha256": "1edb5f49cb158796b05585025089c798b59394a58863cd7b0e0da95e78e9f87f",
       "phase": "phase-2",
-      "lockedAt": "2026-10-18T15:32:19.036Z"
+      "lockedAt": "2026-10-18T15:32:19.036Z",
+      "updatedAt": "2026-11-10T13:05:50.148Z"
     },
     "src\\renderer\\features\\path\\QuestMapView.tsx": {
       "sha256": "09ad7f6a2a40e0b4fdfe6df4011ab590a229c6c705026b1b20362beddd583220",
@@ -94,9 +98,10 @@
       "lockedAt": "2026-10-18T15:32:19.037Z"
     },
     "src\\renderer\\features\\gamification\\GemShopView.tsx": {
-      "sha256": "754f1e82da7a04131bc98be59bc15f29035ea4e63055de73c8bb12de308b71a6",
+      "sha256": "9f16c545112c7f16260a6f9d4591b399578c182980c87dde10c62719cbc8c2f1",
       "phase": "phase-2",
-      "lockedAt": "2026-10-18T15:32:19.038Z"
+      "lockedAt": "2026-10-18T15:32:19.038Z",
+      "updatedAt": "2026-11-10T13:05:50.148Z"
     },
     "src\\renderer\\features\\gamification\\LeagueLeaderboardView.tsx": {
       "sha256": "961ee9665c5d9eab96fe12833129ca255ea08332d13ae1903fec218a1d65cde6",
@@ -164,24 +169,28 @@
       "lockedAt": "2026-10-18T15:39:34.291Z"
     },
     "src\\renderer\\features\\studio\\ConceptMindMap.tsx": {
-      "sha256": "8d6ebe7b428ac448283fbd396f51eae8e9dabc7e9d48a37846877b2969b94738",
+      "sha256": "e32d60ade89d437c915a22b7fe006f15f7ca6f0016baa60fd036e1b1101a471f",
       "phase": "phase-4",
-      "lockedAt": "2026-10-18T15:45:58.565Z"
+      "lockedAt": "2026-10-18T15:45:58.565Z",
+      "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\DeepDivePlayer.tsx": {
-      "sha256": "1a9190c05f33a27542b67b8625c66b10a7c4c3119bcc00e40e8231567f75f28b",
+      "sha256": "a7462f0538c69330f3407cf6c3f8b5d40cd2dd04b7b02ed0c2a471e6fe729e9d",
       "phase": "phase-4",
-      "lockedAt": "2026-10-18T15:45:58.566Z"
+      "lockedAt": "2026-10-18T15:45:58.566Z",
+      "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\MafsVisualizer.tsx": {
-      "sha256": "0d799a167a93b855943bb1d078530bc9be58bbc672673d13484ec9ffe796f6a0",
+      "sha256": "f0a2e01628a8110befdccce4583718a828ca38106270d8cb88eda9c61a8caa51",
       "phase": "phase-4",
-      "lockedAt": "2026-11-04T07:49:23.587Z"
+      "lockedAt": "2026-11-04T07:49:23.587Z",
+      "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\VisualConceptStudio.tsx": {
-      "sha256": "7745ce28d6ceac82f03d1ba40b203b82773e77a08e5b7c48ed66d9483642b96b",
+      "sha256": "a8382f78a793bac922fff0dbb79927e57b7a1c0d7c62051cbbf8da4f713117e9",
       "phase": "phase-4",
-      "lockedAt": "2026-10-18T15:45:58.566Z"
+      "lockedAt": "2026-10-18T15:45:58.566Z",
+      "updatedAt": "2026-11-10T13:05:50.155Z"
     },
     "src\\renderer\\features\\studio\\VisxMlPlot.tsx": {
       "sha256": "eccae26fa6dc82f3572e903ea9cdd7e8e6a9cd2cacdc52a00f99cc1e090ba343",
@@ -214,9 +223,10 @@
       "lockedAt": "2026-10-18T16:09:28.243Z"
     },
     "src\\renderer\\features\\analytics\\AnalyticsDashboard.tsx": {
-      "sha256": "ba352ad04136f8551ade4e39b5b7f4e74ede2fe7c72d5a629b9b17045f51e291",
+      "sha256": "9b251816605ed0efe97ff73dca95e1a3c729095eca0936b9ca27fa4be114fa70",
       "phase": "phase-6",
-      "lockedAt": "2026-10-18T16:09:28.244Z"
+      "lockedAt": "2026-10-18T16:09:28.244Z",
+      "updatedAt": "2026-11-10T13:05:50.158Z"
     },
     "src\\renderer\\features\\srs\\FlashcardVaultView.tsx": {
       "sha256": "691242d6c73b9f5cdf9d013d489347a2acbaf895287db80e0e3539eab61af661",
@@ -284,9 +294,10 @@
       "lockedAt": "2026-10-18T16:52:50.155Z"
     },
     "src\\main\\index.ts": {
-      "sha256": "98a54feda19034cebc18bd293f076377cd1ddb18173bd6d0afe203c68ab156e6",
+      "sha256": "27fa58577b1b3d9dbd47e32ea4b49a735f2ea29dcc16f14eb377de6a0020191b",
       "phase": "phase-9",
-      "lockedAt": "2026-11-04T07:49:23.587Z"
+      "lockedAt": "2026-11-04T07:49:23.587Z",
+      "updatedAt": "2026-11-10T13:05:50.165Z"
     },
     "src\\main\\services\\profileBackupService.ts": {
       "sha256": "ad4849cf9de9cd0da330aa322b38657fc699388c0fcbff942d6833bb28d4a0e8",
@@ -304,24 +315,28 @@
       "lockedAt": "2026-11-04T07:49:23.588Z"
     },
     "src\\renderer\\features\\design-system\\DesignSystemPreview.tsx": {
-      "sha256": "a5791008ca5061f4fc467f60ed71e01770a4b71d8b465bf4b387e035f05cb230",
+      "sha256": "dc7256ae8c9a225ac60cf6e25624a130a23aec82d73ba610e80aac742d2c5b17",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.243Z"
+      "lockedAt": "2026-10-18T17:07:04.243Z",
+      "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\features\\settings\\SettingsView.tsx": {
-      "sha256": "5b2b93903c4ee8f6f8696f8c2d97801311aaa30eb610eeb0e04c8abd1af31c37",
+      "sha256": "68b06d194f2c820ee013b2e83c2671e381fb652bc4671d6bdf76b1414db9c053",
       "phase": "phase-9",
-      "lockedAt": "2026-11-04T07:49:23.589Z"
+      "lockedAt": "2026-11-04T07:49:23.589Z",
+      "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\src\\App.tsx": {
-      "sha256": "099285a4c92e09ef8e180a3e7c8c846a8c8ba1dec47b34eeee9e23d7d9bda77f",
+      "sha256": "6fa59ffc0134ac60ee8c17ddab753fcd7cdc28d1d41ef150c6480871490186fb",
       "phase": "phase-9",
-      "lockedAt": "2026-10-27T17:47:03.650Z"
+      "lockedAt": "2026-10-27T17:47:03.650Z",
+      "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\src\\index.css": {
-      "sha256": "2feb71106f72c7111b322e684b79070d1385a2635898d35da248c8c0166e7b6e",
+      "sha256": "3a393217eacf3d095831c3f67c21e91e5ba611fa35ffb317b2205be220362eb7",
       "phase": "phase-9",
-      "lockedAt": "2026-10-18T17:07:04.244Z"
+      "lockedAt": "2026-10-18T17:07:04.244Z",
+      "updatedAt": "2026-11-10T13:05:50.167Z"
     },
     "src\\renderer\\src\\main.tsx": {
       "sha256": "065ad09ee69c109d8b4024c000aa8936a9aa9e3fcaee6375c43245648162034f",
@@ -334,9 +349,10 @@
       "lockedAt": "2026-10-27T17:47:03.650Z"
     },
     "src\\renderer\\features\\landing\\LandingDashboardView.tsx": {
-      "sha256": "7208f30311bf141dae828723b95328b442c595208f122f8aa0623632757bb3bc",
+      "sha256": "03251684463ca1ce51954a915669a4696a0c4bff2a831d39a39b82e7287322c0",
       "phase": "phase-9",
-      "lockedAt": "2026-11-04T07:49:23.591Z"
+      "lockedAt": "2026-11-04T07:49:23.591Z",
+      "updatedAt": "2026-11-10T13:05:50.168Z"
     },
     "src\\renderer\\components\\common\\GlobalErrorBoundary.tsx": {
       "sha256": "83fc9fdcd289f492ac09c0ea3c8a344775dfe0ab1f59d20e6c65de97eee4fd8e",

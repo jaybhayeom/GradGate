@@ -114,14 +114,14 @@ export const ConceptMindMap: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative select-none">
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+    <div className="flex flex-col gap-5 w-full max-w-4xl mx-auto p-5 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl relative select-none">
+      <div className="flex items-center justify-between border-b border-slate-800 pb-3">
         <div>
-          <h3 className="text-xl font-black text-white tracking-tight">
-            NotebookLM Knowledge Graph Mind Map
+          <h3 className="text-lg md:text-xl font-black text-white tracking-tight">
+            Prerequisite Knowledge Graph &amp; Concept Map
           </h3>
           <p className="text-xs text-slate-400 mt-0.5">
-            Click any concept node to inspect formal theorems, intuition, pitfalls &amp; linked PYQs.
+            Interactive DAG of foundational mathematics and downstream machine learning concepts.
           </p>
         </div>
       </div>

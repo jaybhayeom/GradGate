@@ -226,14 +226,14 @@ export class AdaptiveTargetEngine {
         txId,
         -gemCost,
         newGems,
-        `Purchased Super Cram Mode (${durationHours}h Infinite Hearts)`
+        `Purchased Immersion Study Mode (${durationHours}h Unrestricted Practice)`
       );
     });
 
     tx();
 
     const updated = db.prepare('SELECT * FROM user_stats WHERE id = ?').get(userId) as UserStats;
-    return { success: true, userStats: updated, message: 'Super Cram Mode activated!' };
+    return { success: true, userStats: updated, message: 'Immersion Study Mode activated!' };
   }
 
   /**

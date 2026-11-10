@@ -52,14 +52,14 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
   );
 
   return (
-    <header className="h-16 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-40 select-none">
+    <header className="h-14 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md px-4 md:px-6 flex items-center justify-between sticky top-0 z-40 select-none">
       {/* Left: App Logo & Subject Dropdown */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-[#58CC02] border-b-2 border-[#46A302] flex items-center justify-center font-black text-slate-950 text-lg shadow-sm">
+      <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-[var(--palette-accent,#B6FF2E)] border-b-2 border-black/30 flex items-center justify-center font-black text-[var(--palette-text-on-accent,#0A0A0A)] text-base shadow-sm">
             G
           </div>
-          <span className="font-extrabold text-white text-base tracking-tight hidden sm:inline">
+          <span className="font-extrabold text-white text-sm md:text-base tracking-tight hidden sm:inline">
             GradGate
           </span>
         </div>
@@ -69,14 +69,16 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
           <button
             type="button"
             onClick={() => setIsDropdownOpen((prev) => !prev)}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-850 border border-slate-700/80 text-xs font-bold text-slate-200 transition shadow-sm"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-850 border border-slate-700/80 text-xs font-semibold text-slate-200 transition shadow-sm"
           >
             <span
-              className="w-2.5 h-2.5 rounded-full"
+              className="w-2 h-2 rounded-full shrink-0"
               style={{ backgroundColor: selectedSection?.color_hex || '#10B981' }}
             />
-            <span className="max-w-[140px] truncate">{selectedSection?.short_title || 'Select Subject'}</span>
-            <CaretDown size={14} weight="bold" className="text-slate-400" />
+            <span className="max-w-[120px] md:max-w-[150px] truncate text-[11px] md:text-xs">
+              {selectedSection?.short_title || 'Select Subject'}
+            </span>
+            <CaretDown size={12} weight="bold" className="text-slate-400" />
           </button>
 
           {isDropdownOpen && (
@@ -108,13 +110,13 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
       </div>
 
       {/* Right: Gamification Stats HUD */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-2.5">
         {/* Streak Flame */}
         <div
           title="Daily Study Streak"
-          className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-800/90 border border-slate-700 text-xs font-black text-orange-400 shadow-sm"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-xs font-black text-orange-400 shadow-sm"
         >
-          <Flame size={18} weight="fill" className="text-orange-500" />
+          <Flame size={16} weight="fill" className="text-orange-500" />
           <span>{userStats?.current_streak ?? 0}</span>
         </div>
 
@@ -122,10 +124,10 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
         <button
           type="button"
           onClick={onOpenGemShop}
-          title="Gem Balance — Click to open Gem Shop"
-          className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-800/90 hover:bg-slate-750 border border-slate-700 text-xs font-black text-cyan-400 transition shadow-sm"
+          title="Gem Balance — Click to open Curriculum Resource Hub"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/90 hover:bg-slate-750 border border-slate-700 text-xs font-black text-cyan-400 transition shadow-sm"
         >
-          <Diamond size={18} weight="fill" className="text-cyan-400" />
+          <Diamond size={16} weight="fill" className="text-cyan-400" />
           <span>{userStats?.gems ?? 150}</span>
         </button>
 
@@ -133,10 +135,10 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
         <button
           type="button"
           onClick={onOpenHeartsRefill}
-          title="Hearts — Click to refill or practice mistakes"
-          className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-800/90 hover:bg-slate-750 border border-slate-700 text-xs font-black text-rose-400 transition shadow-sm"
+          title="Hearts — Click to practice mistake repair"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/90 hover:bg-slate-750 border border-slate-700 text-xs font-black text-rose-400 transition shadow-sm"
         >
-          <Heart size={18} weight="fill" className="text-rose-500" />
+          <Heart size={16} weight="fill" className="text-rose-500" />
           <span>{isInfiniteHearts ? '∞' : `${userStats?.hearts ?? 5}/5`}</span>
         </button>
 
@@ -145,19 +147,19 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
           type="button"
           onClick={toggleMute}
           title={isMuted ? 'Unmute Sound Effects' : 'Mute Sound Effects'}
-          className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 border border-slate-700 text-slate-300 transition"
+          className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-750 border border-slate-700 text-slate-300 transition"
         >
           {isMuted ? (
-            <SpeakerSimpleSlash size={16} weight="bold" className="text-slate-400" />
+            <SpeakerSimpleSlash size={15} weight="bold" className="text-slate-400" />
           ) : (
-            <SpeakerHigh size={16} weight="bold" className="text-emerald-400" />
+            <SpeakerHigh size={15} weight="bold" className="text-emerald-400" />
           )}
         </button>
 
         {/* OTA / Offline Status Pill */}
         <div
           title={isOnline ? 'Connected to GitHub OTA Sync Engine' : 'Offline Mode (Local SQLite Active)'}
-          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[11px] font-bold border ${
+          className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[11px] font-bold border ${
             isOnline
               ? 'bg-emerald-950/40 border-emerald-800/60 text-emerald-400'
               : 'bg-slate-800 border-slate-700 text-slate-400'
@@ -165,12 +167,12 @@ export const TopStatHud: React.FC<TopStatHudProps> = ({
         >
           {isOnline ? (
             <>
-              <CloudCheck size={14} weight="bold" />
+              <CloudCheck size={13} weight="bold" />
               <span className="hidden sm:inline">Online</span>
             </>
           ) : (
             <>
-              <CloudSlash size={14} weight="bold" />
+              <CloudSlash size={13} weight="bold" />
               <span className="hidden sm:inline">Offline</span>
             </>
           )}

@@ -1,5 +1,5 @@
 // ==============================================================================
-// MAFS INTERACTIVE VISUALIZER (3Blue1Brown-Style 2D Coordinate & Matrix Studio)
+// MAFS INTERACTIVE VISUALIZER (Interactive 2D Coordinate & Matrix Studio)
 // Scenes:
 //   1. Linear Algebra: 2x2 matrix warping, Eigenvalues, Eigenvectors, Det area.
 //   2. Calculus: Tangent slope derivative, Taylor series order, Gradient Descent ball.

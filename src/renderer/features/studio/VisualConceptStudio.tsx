@@ -1,10 +1,10 @@
 // ==============================================================================
 // VISUAL CONCEPT STUDIO
-// Unified visual studio hub hosting:
-//   1. 3Blue1Brown-style Mafs 2D coordinate/matrix transformations.
+// Unified visual workstation hosting:
+//   1. Mafs 2D coordinate/matrix transformations & calculus.
 //   2. Visx 2D Machine Learning Decision Boundaries.
 //   3. Prerequisite Knowledge Mind Map (@xyflow/react).
-//   4. 2-Host Deep Dive Audio Podcast Player.
+//   4. Conceptual Audio Seminar with step-by-step derivations.
 // ==============================================================================
 
 import React, { useState } from 'react';
@@ -20,15 +20,15 @@ export const VisualConceptStudio: React.FC = () => {
   const [activeTab, setActiveTab] = useState<StudioTab>('MAFS');
 
   return (
-    <div className="flex flex-col gap-8 max-w-5xl mx-auto p-8 select-none">
+    <div className="flex flex-col gap-6 max-w-5xl mx-auto p-4 md:p-6 select-none">
       {/* Studio Header & Sub-Tabs */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-black text-white tracking-tight">
-            NotebookLM Visual Teaching Studio
+          <h2 className="text-xl md:text-2xl font-black text-white tracking-tight">
+            Visual Math &amp; Concept Studio
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
-            Intuitive visual mathematics, 2D ML boundary simulation, and synchronized 2-host audio.
+          <p className="text-xs text-slate-400 mt-0.5">
+            Coordinate geometry transformations, 2D machine learning decision boundaries, prerequisite concept trees, and audio seminars.
           </p>
         </div>
 
@@ -43,8 +43,8 @@ export const VisualConceptStudio: React.FC = () => {
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Compass size={16} weight="bold" />
-            <span>Mafs 2D Math</span>
+            <Compass size={15} weight="bold" />
+            <span>Coordinate Geometry</span>
           </button>
 
           <button
@@ -56,7 +56,7 @@ export const VisualConceptStudio: React.FC = () => {
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Brain size={16} weight="bold" />
+            <Brain size={15} weight="bold" />
             <span>ML Boundaries</span>
           </button>
 
@@ -69,8 +69,8 @@ export const VisualConceptStudio: React.FC = () => {
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <GitFork size={16} weight="bold" />
-            <span>Mind Map</span>
+            <GitFork size={15} weight="bold" />
+            <span>Concept Map</span>
           </button>
 
           <button
@@ -82,8 +82,8 @@ export const VisualConceptStudio: React.FC = () => {
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Broadcast size={16} weight="bold" />
-            <span>Deep Dive Podcast</span>
+            <Broadcast size={15} weight="bold" />
+            <span>Audio Seminar</span>
           </button>
         </div>
       </div>

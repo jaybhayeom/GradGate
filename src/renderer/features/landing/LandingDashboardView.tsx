@@ -77,17 +77,17 @@ export function LandingDashboardView({
   }, [userStats?.xp]);
 
   return (
-    <div className="max-w-6xl w-full mx-auto px-6 py-8 space-y-10 select-none">
+    <div className="max-w-6xl w-full mx-auto px-5 py-6 space-y-6 select-none">
       {/* 1. HERO BANNER */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 border border-slate-800 p-8 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/30 border border-slate-800 p-6 md:p-7 shadow-xl">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
+          <div className="space-y-2.5 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide">
               <Sparkle className="w-4 h-4" weight="fill" />
-              <span>GATE Data Science & Artificial Intelligence (DA) Suite</span>
+              <span>GATE Data Science &amp; Artificial Intelligence (DA) Suite</span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
+            <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight">
               Welcome back,{' '}
               <span className="text-emerald-400">
                 {userStats?.display_name || 'Aspirant'}
@@ -95,10 +95,10 @@ export function LandingDashboardView({
               !
             </h1>
 
-            <p className="text-slate-300 text-sm leading-relaxed">
-              Your offline-first command station for mastering Data Science & AI.
-              Engage with tactile learning quests, 3Blue1Brown visual math simulations,
-              and official TCS iON 65-question computer-based exam simulations.
+            <p className="text-slate-300 text-xs md:text-sm leading-relaxed">
+              Your offline-first workstation for mastering Data Science &amp; AI. Structured syllabus
+              progression with active recall drills, interactive coordinate geometry simulations, and official
+              TCS iON 65-question computer-based mock exams.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -109,7 +109,7 @@ export function LandingDashboardView({
               >
                 <div className="flex items-center gap-2">
                   <Path className="w-4 h-4" weight="bold" />
-                  <span>Resume Learning Path</span>
+                  <span>Resume Curriculum Path</span>
                 </div>
               </DuoButton>
 
@@ -127,7 +127,7 @@ export function LandingDashboardView({
           </div>
 
           {/* Right: Countdown & Readiness Meter */}
-          <div className="flex flex-col gap-3 min-w-[240px] p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 shadow-lg">
+          <div className="flex flex-col gap-2.5 min-w-[220px] p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 shadow-lg">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-emerald-400" />
@@ -137,10 +137,10 @@ export function LandingDashboardView({
             </div>
 
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-black text-white tracking-tight">
+              <span className="text-3xl font-black text-white tracking-tight">
                 {examCountdown.days}
               </span>
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Days Remaining</span>
+              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Days Remaining</span>
             </div>
 
             <div className="pt-2 border-t border-slate-800/80 space-y-1.5">
@@ -160,10 +160,10 @@ export function LandingDashboardView({
       </div>
 
       {/* 2. QUICK LAUNCH CENTER (6 CORE PILLARS) */}
-      <div className="space-y-4">
+      <div className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-black text-white tracking-tight flex items-center gap-2">
+            <h2 className="text-base md:text-lg font-black text-white tracking-tight flex items-center gap-2">
               <Lightning className="w-5 h-5 text-amber-400" weight="fill" />
               <span>Core Preparation Pillars</span>
             </h2>
@@ -173,26 +173,26 @@ export function LandingDashboardView({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {/* Pillar 1: TCS iON Arena */}
           <div
             onClick={() => onNavigateTab('arena')}
-            className="group cursor-pointer p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-4 shadow-sm"
+            className="group cursor-pointer p-4.5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-3 shadow-sm"
           >
             <div className="flex items-start justify-between">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center">
-                <Target className="w-6 h-6" weight="duotone" />
+              <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center">
+                <Target className="w-5 h-5" weight="duotone" />
               </div>
               <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                 Official CBT
               </span>
             </div>
             <div>
-              <h3 className="text-base font-black text-white group-hover:text-amber-400 transition">
+              <h3 className="text-sm md:text-base font-black text-white group-hover:text-amber-400 transition">
                 TCS iON 65-Q Exam Arena
               </h3>
               <p className="text-xs text-slate-400 mt-1 line-clamp-2">
-                Official 100-mark mock exam with General Aptitude & Technical DA, Gate Scientific Calculator, and power-cut crash recovery.
+                Official 100-mark mock exam with General Aptitude &amp; Technical DA, Gate Scientific Calculator, and power-cut crash recovery.
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-amber-400 pt-2 border-t border-slate-800/80">
@@ -204,26 +204,26 @@ export function LandingDashboardView({
           {/* Pillar 2: Quest Learning Path */}
           <div
             onClick={() => onNavigateTab('path')}
-            className="group cursor-pointer p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-4 shadow-sm"
+            className="group cursor-pointer p-4.5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-3 shadow-sm"
           >
             <div className="flex items-start justify-between">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
-                <Path className="w-6 h-6" weight="duotone" />
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
+                <Path className="w-5 h-5" weight="duotone" />
               </div>
               <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Gamified
+                Structured Path
               </span>
             </div>
             <div>
-              <h3 className="text-base font-black text-white group-hover:text-emerald-400 transition">
-                Duolingo-Style Quest Path
+              <h3 className="text-sm md:text-base font-black text-white group-hover:text-emerald-400 transition">
+                Curriculum Mastery Pathway
               </h3>
               <p className="text-xs text-slate-400 mt-1 line-clamp-2">
-                Sinusoidal map of stepping nodes, concept drills, PYQ checkpoints, hearts, and streak freeze protections.
+                Interactive curriculum pathway with concept drills, PYQ checkpoints, hearts system, and streak freeze protections.
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-emerald-400 pt-2 border-t border-slate-800/80">
-              <span>Explore Stepping Nodes</span>
+              <span>Explore Curriculum Nodes</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
             </div>
           </div>
@@ -231,22 +231,22 @@ export function LandingDashboardView({
           {/* Pillar 3: NotebookLM Visual Studio */}
           <div
             onClick={() => onNavigateTab('studio')}
-            className="group cursor-pointer p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-4 shadow-sm"
+            className="group cursor-pointer p-4.5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-3 shadow-sm"
           >
             <div className="flex items-start justify-between">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center">
-                <Compass className="w-6 h-6" weight="duotone" />
+              <div className="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center">
+                <Compass className="w-5 h-5" weight="duotone" />
               </div>
               <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                3Blue1Brown
+                Interactive Math
               </span>
             </div>
             <div>
-              <h3 className="text-base font-black text-white group-hover:text-purple-400 transition">
-                NotebookLM Visual Studio
+              <h3 className="text-sm md:text-base font-black text-white group-hover:text-purple-400 transition">
+                Visual Math &amp; Geometry Studio
               </h3>
               <p className="text-xs text-slate-400 mt-1 line-clamp-2">
-                Interactive Mafs 2D coordinate spaces, Visx ML decision boundary plots, interactive mind maps, and 2-host audio deep dives.
+                Interactive 2D coordinate spaces, Visx ML decision boundary plots, prerequisite concept trees, and conceptual audio seminars.
               </p>
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-purple-400 pt-2 border-t border-slate-800/80">
@@ -339,10 +339,10 @@ export function LandingDashboardView({
       </div>
 
       {/* 3. OFFICIAL GATE DA SYLLABUS SECTIONS (ALL 8 SUBJECTS) */}
-      <div className="space-y-4">
+      <div className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-black text-white tracking-tight flex items-center gap-2">
+            <h2 className="text-base md:text-lg font-black text-white tracking-tight flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-emerald-400" weight="fill" />
               <span>Official GATE DA Syllabus Coverage</span>
             </h2>
@@ -352,7 +352,7 @@ export function LandingDashboardView({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {sections.map((section) => (
             <div
               key={section.id}
@@ -360,7 +360,7 @@ export function LandingDashboardView({
                 onSelectSection(section.id);
                 onNavigateTab('path');
               }}
-              className="group cursor-pointer p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-3"
+              className="group cursor-pointer p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-850 transition duration-200 flex flex-col justify-between space-y-2.5"
             >
               <div className="flex items-center justify-between">
                 <span
@@ -379,7 +379,7 @@ export function LandingDashboardView({
               </div>
 
               <div>
-                <h4 className="text-sm font-black text-white group-hover:text-emerald-400 transition truncate">
+                <h4 className="text-xs md:text-sm font-black text-white group-hover:text-emerald-400 transition truncate">
                   {section.title}
                 </h4>
                 <p className="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed">
@@ -397,10 +397,10 @@ export function LandingDashboardView({
       </div>
 
       {/* 4. SYSTEM HEALTH & DUAL-SQLITE STATUS */}
-      <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="p-4 md:p-5 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
-            <ShieldCheck className="w-6 h-6" weight="duotone" />
+          <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
+            <ShieldCheck className="w-5 h-5" weight="duotone" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -409,7 +409,7 @@ export function LandingDashboardView({
                 100% Offline Ready
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-[11px] text-slate-400 mt-0.5">
               `curriculum.db` (read-only content) + `user_profile.db` (WAL mode with &lt;50ms auto-commit).
             </p>
           </div>

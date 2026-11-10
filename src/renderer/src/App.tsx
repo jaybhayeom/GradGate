@@ -477,48 +477,48 @@ export default function App(): React.JSX.Element {
         onOpenHeartsRefill={() => setIsRepairModalOpen(true)}
       />
 
-      {/* 3. Navigation Bar */}
-      <div className="max-w-6xl w-full mx-auto px-6 pt-5 flex items-center justify-between">
-        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800 overflow-x-auto">
+      {/* 3. Sleek Command Navigation Bar (Laptop-Optimized & 60-30-10 Compliant) */}
+      <nav className="max-w-6xl w-full mx-auto px-4 md:px-6 pt-3 pb-1 flex items-center justify-between gap-3 select-none">
+        <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-900 border border-slate-800 overflow-x-auto scrollbar-none max-w-full">
           {/* Home Landing */}
           <button
             type="button"
             onClick={() => setActiveTab('home')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'home'
-                ? 'bg-emerald-500 text-slate-950 shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Home className="w-4 h-4" />
+            <Home className="w-3.5 h-3.5" />
             <span>Home</span>
           </button>
 
-          {/* Path */}
+          {/* Curriculum Path */}
           <button
             type="button"
             onClick={() => setActiveTab('path')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'path'
-                ? 'bg-[#58CC02] text-slate-950 shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Route className="w-4 h-4" />
-            <span>Path</span>
+            <Route className="w-3.5 h-3.5" />
+            <span>Curriculum</span>
           </button>
 
           {/* TCS Arena */}
           <button
             type="button"
             onClick={() => setActiveTab('arena')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'arena'
-                ? 'bg-amber-500 text-slate-950 shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Target className="w-4 h-4" />
+            <Target className="w-3.5 h-3.5 text-amber-400" />
             <span>TCS Arena</span>
           </button>
 
@@ -526,13 +526,13 @@ export default function App(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setActiveTab('studio')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'studio'
-                ? 'bg-purple-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Compass className="w-4 h-4" />
+            <Compass className="w-3.5 h-3.5 text-purple-400" />
             <span>Visual Studio</span>
           </button>
 
@@ -540,13 +540,13 @@ export default function App(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setActiveTab('srs')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'srs'
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <BookOpen className="w-4 h-4" />
+            <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
             <span>Flashcards</span>
           </button>
 
@@ -554,13 +554,13 @@ export default function App(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setActiveTab('lectures')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'lectures'
-                ? 'bg-rose-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Video className="w-4 h-4" />
+            <Video className="w-3.5 h-3.5 text-rose-400" />
             <span>Lectures</span>
           </button>
 
@@ -568,55 +568,57 @@ export default function App(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setActiveTab('analytics')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'analytics'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <BarChart2 className="w-4 h-4" />
+            <BarChart2 className="w-3.5 h-3.5 text-blue-400" />
             <span>Analytics</span>
           </button>
+
+          <span className="w-px h-4 bg-slate-800 mx-0.5 shrink-0" />
 
           {/* Leaderboard */}
           <button
             type="button"
             onClick={() => setActiveTab('leaderboard')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'leaderboard'
-                ? 'bg-[#FFC800] text-slate-950 shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Trophy className="w-4 h-4" />
-            <span>Leaderboard</span>
+            <Trophy className="w-3.5 h-3.5 text-amber-400" />
+            <span>Cohort</span>
           </button>
 
           {/* Shop */}
           <button
             type="button"
             onClick={() => setActiveTab('shop')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'shop'
-                ? 'bg-[#1CB0F6] text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Diamond className="w-4 h-4" />
-            <span>Shop</span>
+            <Diamond className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Store</span>
           </button>
 
           {/* Settings */}
           <button
             type="button"
             onClick={() => setActiveTab('settings')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'settings'
-                ? 'bg-cyan-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Settings className="w-4 h-4" />
+            <Settings className="w-3.5 h-3.5" />
             <span>Settings</span>
           </button>
 
@@ -624,29 +626,29 @@ export default function App(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setActiveTab('design_system')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
               activeTab === 'design_system'
-                ? 'bg-fuchsia-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-slate-800 text-[var(--palette-accent,#B6FF2E)] border border-[var(--palette-accent,#B6FF2E)]/40 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
             }`}
           >
-            <Palette className="w-4 h-4" />
-            <span>UI Studio</span>
+            <Palette className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Palettes</span>
           </button>
         </div>
 
-        {/* Mistakes Pill */}
+        {/* Mistakes Repair Pill */}
         <button
           type="button"
           onClick={() => setIsRepairModalOpen(true)}
-          className="px-3.5 py-2 rounded-xl bg-rose-950/40 hover:bg-rose-950/60 border border-rose-900/60 text-rose-300 text-xs font-bold transition flex items-center gap-2"
+          className="px-2.5 py-1.5 rounded-xl bg-rose-950/40 hover:bg-rose-950/60 border border-rose-900/60 text-rose-300 text-xs font-bold transition flex items-center gap-2 shrink-0 shadow-sm"
         >
           <span>Mistakes</span>
-          <span className="px-1.5 py-0.5 rounded-full bg-rose-500 text-white text-[10px] font-black">
+          <span className="px-1.5 py-0.2 rounded-full bg-rose-500 text-white text-[10px] font-black">
             {mistakes.length}
           </span>
         </button>
-      </div>
+      </nav>
 
       {/* 4. Active View Content */}
       <main className="flex-1 w-full mx-auto pb-16">

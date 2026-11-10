@@ -23,12 +23,14 @@ let syncManager: GitHubSyncManager | null = null;
 
 function createWindow(): void {
   mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 800,
+    width: 1366,
+    height: 768,
     minWidth: 1024,
-    minHeight: 700,
+    minHeight: 600,
+    center: true,
     show: true,
     autoHideMenuBar: true,
+    backgroundColor: '#1F2329',
     title: 'GradGate — GATE DA Desktop',
     webPreferences: {
       preload: fs.existsSync(path.join(__dirname, '../preload/index.js'))

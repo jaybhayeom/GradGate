@@ -545,7 +545,7 @@ export function SettingsView({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-purple-400 font-bold text-sm">
               <Sparkle className="w-5 h-5" weight="duotone" />
-              <span>Optional AI Bridge (NotebookLM / Ollama)</span>
+              <span>Optional Local LLM &amp; Academic AI Bridge</span>
             </div>
             {aiSavedSuccess && (
               <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1">
@@ -605,9 +605,9 @@ export function SettingsView({
               </div>
             </div>
 
-            {/* NotebookLM Mode Toggle */}
+            {/* Comprehensive Study Guide Toggle */}
             <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-              <span className="text-slate-300">Generate NotebookLM Deep Dive Guides</span>
+              <span className="text-slate-300">Generate Comprehensive Topic Study Guides</span>
               <input
                 type="checkbox"
                 checked={notebookLmMode}
